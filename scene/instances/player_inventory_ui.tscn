@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://piux43nr67ok"]
+
+[ext_resource type="Script" uid="uid://clvdxgxgpe6qm" path="res://scripts/inventory/ui/InventoryUI.cs" id="1_g3ha6"]
+[ext_resource type="PackedScene" uid="uid://t8b2fpva6x1i" path="res://scene/instances/inventory_slot_ui.tscn" id="2_50t8n"]
+
+[node name="PlayerInventoryUI" type="Panel" unique_id=1728241136 node_paths=PackedStringArray("_slotContainer")]
+offset_right = 1024.0
+offset_bottom = 1024.0
+script = ExtResource("1_g3ha6")
+_slotPathStr = "SlotPanel"
+_slotContainer = NodePath("Container")
+
+[node name="Container" type="GridContainer" parent="." unique_id=298833455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+columns = 4
+
+[node name="InventorySlotUI" parent="Container" unique_id=554242975 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI2" parent="Container" unique_id=2094892136 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI3" parent="Container" unique_id=28571800 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI4" parent="Container" unique_id=354287944 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI5" parent="Container" unique_id=1436502825 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI6" parent="Container" unique_id=293588636 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI7" parent="Container" unique_id=226399541 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI8" parent="Container" unique_id=988231220 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI9" parent="Container" unique_id=2060159002 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI10" parent="Container" unique_id=1436497889 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI11" parent="Container" unique_id=681494056 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI12" parent="Container" unique_id=1854289255 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI13" parent="Container" unique_id=474971385 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI14" parent="Container" unique_id=1461959192 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI15" parent="Container" unique_id=610642853 instance=ExtResource("2_50t8n")]
+layout_mode = 2
+
+[node name="InventorySlotUI16" parent="Container" unique_id=195361579 instance=ExtResource("2_50t8n")]
+layout_mode = 2

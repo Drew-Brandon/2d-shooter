@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://coayws5dxx1ol"]
+
+[ext_resource type="Texture2D" uid="uid://5vtbxfbx5xml" path="res://textures/pistol.png" id="1_vphmd"]
+[ext_resource type="Script" uid="uid://6cydex2h6gdd" path="res://scripts/plus_variants/LabelPlus.cs" id="2_yk5wf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mby2p"]
+font_size = 24
+
+[node name="GunDisplay" type="Control" unique_id=1940113163]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="GunIcon" type="TextureRect" parent="." unique_id=2084290391]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 128.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+texture = ExtResource("1_vphmd")
+
+[node name="ClipLabel" type="Label" parent="." unique_id=1506628135]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -34.0
+offset_right = 168.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+label_settings = SubResource("LabelSettings_mby2p")
+script = ExtResource("2_yk5wf")
+metadata/_custom_type_script = "uid://6cydex2h6gdd"
+
+[node name="ReserveAmmoLabel" type="Label" parent="." unique_id=1461425507]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 168.0
+offset_top = -34.0
+offset_right = 208.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+label_settings = SubResource("LabelSettings_mby2p")
+script = ExtResource("2_yk5wf")
+metadata/_custom_type_script = "uid://6cydex2h6gdd"

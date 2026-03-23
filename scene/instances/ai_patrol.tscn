@@ -1,0 +1,286 @@
+[gd_scene format=3 uid="uid://c8jai1sa2yaha"]
+
+[ext_resource type="Script" uid="uid://bmfy6q3yph5an" path="res://scripts/ai/AIBody2D.cs" id="1_j0uo0"]
+[ext_resource type="Texture2D" uid="uid://ckk0p2mfvdxhd" path="res://textures/top_down_green_cyber.png" id="2_8hpjs"]
+[ext_resource type="Material" uid="uid://b0cqyj6e0iuw3" path="res://light_occlude_material.tres" id="2_mrglp"]
+[ext_resource type="Script" uid="uid://vn4b4rapp73x" path="res://scripts/ai/Sight.cs" id="3_uwr22"]
+[ext_resource type="Script" uid="uid://b1tbr74dvdy31" path="res://scripts/cast_info_scripts/ShapeCastInfo.cs" id="4_vcsyp"]
+[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info_scripts/RayCastInfo.cs" id="5_ilp8h"]
+[ext_resource type="Script" uid="uid://bux4fcu6joiue" path="res://scripts/ai/ai_behavior/BTPlayer.cs" id="6_kksiy"]
+[ext_resource type="Script" uid="uid://un8dflo4mpka" path="res://scripts/ai/ai_behavior/AIBlackboard.cs" id="7_h72ge"]
+[ext_resource type="Script" uid="uid://boplkvsuodc04" path="res://scripts/ai/ai_behavior/behavior_nodes/parent_nodes/BTSelector.cs" id="8_wgls8"]
+[ext_resource type="Script" uid="uid://cq27miyygy1rm" path="res://scripts/ai/ai_behavior/behavior_nodes/parent_nodes/BTSequence.cs" id="9_8hpjs"]
+[ext_resource type="Script" uid="uid://isvvjmd50i14" path="res://scripts/ai/ai_behavior/BTVariable.cs" id="10_mrglp"]
+[ext_resource type="Script" uid="uid://fuyvmvx88oyr" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTPursueNode2D.cs" id="11_cvnxk"]
+[ext_resource type="Script" uid="uid://b7yklqap3l4ub" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTSearch.cs" id="13_cvnxk"]
+[ext_resource type="Script" uid="uid://b3sfmiecdqkq3" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTSetBBValue.cs" id="14_8hpjs"]
+[ext_resource type="Script" uid="uid://epwt62m118dt" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTSignal.cs" id="14_krw7v"]
+[ext_resource type="Script" uid="uid://dsgcopcomrmkh" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTGetNode2DPosition.cs" id="15_yd207"]
+[ext_resource type="Script" uid="uid://bkfr0sou4ekgh" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTMoveToPosition.cs" id="16_yd207"]
+[ext_resource type="Script" uid="uid://b8urbr7k13qsf" path="res://scripts/ai/ai_behavior/behavior_nodes/child_nodes/BTNextPatrolPoint.cs" id="17_krv87"]
+[ext_resource type="AudioStream" uid="uid://yn3318uy7npx" path="res://sfx/flesh_impact.wav" id="19_s3ku4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yd207"]
+radius = 20.0
+
+[sub_resource type="Resource" id="Resource_d3c4w"]
+script = ExtResource("4_vcsyp")
+_shape = SubResource("CircleShape2D_yd207")
+_collisionMask = 2
+metadata/_custom_type_script = "uid://b1tbr74dvdy31"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sb12i"]
+radius = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18v4p"]
+radius = 256.0
+
+[sub_resource type="Resource" id="Resource_we63a"]
+script = ExtResource("4_vcsyp")
+_shape = SubResource("CircleShape2D_18v4p")
+_collisionMask = 2
+metadata/_custom_type_script = "uid://b1tbr74dvdy31"
+
+[sub_resource type="Resource" id="Resource_n8puf"]
+script = ExtResource("5_ilp8h")
+_collisionMask = 7
+metadata/_custom_type_script = "uid://blhr4idq26v1e"
+
+[sub_resource type="Resource" id="Resource_wgls8"]
+script = ExtResource("10_mrglp")
+_bbVarType = 2
+_bbVarName = &"patrolling"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_142ew"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"cur_patrol_point"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_rnu6l"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_bbxfe"]
+script = ExtResource("10_mrglp")
+_bbVarType = 3
+_bbVarName = &"patrol_path"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_r3ki4"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_yd207"]
+script = ExtResource("10_mrglp")
+_bbVarType = 2
+_bbVarName = &"chasing"
+_val = false
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_krv87"]
+script = ExtResource("10_mrglp")
+_bbVarType = 3
+_bbVarName = &"targ_node"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_our33"]
+script = ExtResource("10_mrglp")
+_bbVarType = 2
+_bbVarName = &"searching"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_ak10u"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_u48t0"]
+script = ExtResource("10_mrglp")
+_bbVarType = 3
+_bbVarName = &"targ_node"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_4yeaj"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_iauur"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_pv6hu"]
+script = ExtResource("10_mrglp")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_mrglp"]
+script = ExtResource("10_mrglp")
+_bbVarType = 2
+_bbVarName = null
+_val = &"patrolling"
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[node name="AIPatrol" type="CharacterBody2D" unique_id=549273246 node_paths=PackedStringArray("_navAgent", "_dmgPlayer")]
+collision_layer = 4
+collision_mask = 7
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_j0uo0")
+_bodyPartsDmgMult = PackedFloat32Array(2, 1, 1, 1, 1, 1)
+_navAgent = NodePath("AINavigation")
+_attackCastInfo = SubResource("Resource_d3c4w")
+_attackCooldown = 1.0
+_dmgPlayer = NodePath("DamagePlayer")
+_walkSpeed = 50.0
+_runSpeed = 90.0
+_velWeight = 16.0
+
+[node name="AISprite" type="Sprite2D" parent="." unique_id=315304782]
+material = ExtResource("2_mrglp")
+texture = ExtResource("2_8hpjs")
+
+[node name="AICollider" type="CollisionShape2D" parent="." unique_id=1596105348]
+shape = SubResource("CircleShape2D_sb12i")
+
+[node name="AINavigation" type="NavigationAgent2D" parent="." unique_id=2010922481]
+path_desired_distance = 2.0
+target_desired_distance = 4.0
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Sight" type="Node2D" parent="." unique_id=1399605069 node_paths=PackedStringArray("_ignoreNodeList")]
+script = ExtResource("3_uwr22")
+_rangeCast = SubResource("Resource_we63a")
+_sightCast = SubResource("Resource_n8puf")
+_ignoreNodeList = [NodePath("..")]
+
+[node name="BTPlayer" type="Node" parent="." unique_id=1068495423 node_paths=PackedStringArray("_root", "_ai", "_bb")]
+script = ExtResource("6_kksiy")
+_autoStart = true
+_root = NodePath("RootSelector")
+_ai = NodePath("..")
+_bb = NodePath("AIBlackboard")
+metadata/_custom_type_script = "uid://bux4fcu6joiue"
+
+[node name="AIBlackboard" type="Node" parent="BTPlayer" unique_id=476612187]
+script = ExtResource("7_h72ge")
+_states = Array[StringName]([&"patrolling", &"chasing", &"searching"])
+_vals = Dictionary[StringName, Variant]({
+&"cur_patrol_point": 0,
+&"targ_pos": Vector2(0, 0)
+})
+_nodePaths = Dictionary[StringName, Variant]({
+&"patrol_path": NodePath(""),
+&"targ_node": NodePath("")
+})
+metadata/_custom_type_script = "uid://un8dflo4mpka"
+
+[node name="RootSelector" type="Node" parent="BTPlayer" unique_id=1500943251]
+script = ExtResource("8_wgls8")
+metadata/_custom_type_script = "uid://boplkvsuodc04"
+
+[node name="PatrolSequence" type="Node" parent="BTPlayer/RootSelector" unique_id=432121746]
+script = ExtResource("9_8hpjs")
+_bbQuery = SubResource("Resource_wgls8")
+metadata/_custom_type_script = "uid://cq27miyygy1rm"
+
+[node name="BTNextPatrolPoint" type="Node" parent="BTPlayer/RootSelector/PatrolSequence" unique_id=430939866]
+script = ExtResource("17_krv87")
+_curPoint = SubResource("Resource_142ew")
+_targPos = SubResource("Resource_rnu6l")
+_patrolPath = SubResource("Resource_bbxfe")
+metadata/_custom_type_script = "uid://b8urbr7k13qsf"
+
+[node name="BTMoveToPatrol" type="Node" parent="BTPlayer/RootSelector/PatrolSequence" unique_id=470493441]
+script = ExtResource("16_yd207")
+_pos = SubResource("Resource_r3ki4")
+metadata/_custom_type_script = "uid://bkfr0sou4ekgh"
+
+[node name="ChaseSequence" type="Node" parent="BTPlayer/RootSelector" unique_id=825772717]
+script = ExtResource("9_8hpjs")
+_bbQuery = SubResource("Resource_yd207")
+metadata/_custom_type_script = "uid://cq27miyygy1rm"
+
+[node name="BTSignalRun" type="Node" parent="BTPlayer/RootSelector/ChaseSequence" unique_id=1881014326]
+script = ExtResource("14_krw7v")
+metadata/_custom_type_script = "uid://epwt62m118dt"
+
+[node name="BTPursueNode2D" type="Node" parent="BTPlayer/RootSelector/ChaseSequence" unique_id=999924815]
+script = ExtResource("11_cvnxk")
+_node = SubResource("Resource_krv87")
+metadata/_custom_type_script = "uid://fuyvmvx88oyr"
+
+[node name="SearchSequence" type="Node" parent="BTPlayer/RootSelector" unique_id=729804478]
+script = ExtResource("9_8hpjs")
+_bbQuery = SubResource("Resource_our33")
+metadata/_custom_type_script = "uid://cq27miyygy1rm"
+
+[node name="BTGetTargPosition" type="Node" parent="BTPlayer/RootSelector/SearchSequence" unique_id=1995037214]
+script = ExtResource("15_yd207")
+_pos = SubResource("Resource_ak10u")
+_node = SubResource("Resource_u48t0")
+metadata/_custom_type_script = "uid://dsgcopcomrmkh"
+
+[node name="BTMoveToLast" type="Node" parent="BTPlayer/RootSelector/SearchSequence" unique_id=1769152658]
+script = ExtResource("16_yd207")
+_pos = SubResource("Resource_4yeaj")
+metadata/_custom_type_script = "uid://bkfr0sou4ekgh"
+
+[node name="BTSequence" type="Node" parent="BTPlayer/RootSelector/SearchSequence" unique_id=1438672510]
+script = ExtResource("9_8hpjs")
+_loopAmount = 2
+metadata/_custom_type_script = "uid://cq27miyygy1rm"
+
+[node name="BTSearch" type="Node" parent="BTPlayer/RootSelector/SearchSequence/BTSequence" unique_id=1926449671]
+script = ExtResource("13_cvnxk")
+_minSearchRadius = 64.0
+_maxSearchRadius = 128.0
+_targPos = SubResource("Resource_iauur")
+metadata/_custom_type_script = "uid://b7yklqap3l4ub"
+
+[node name="BTMoveToSearch" type="Node" parent="BTPlayer/RootSelector/SearchSequence/BTSequence" unique_id=1471290204]
+script = ExtResource("16_yd207")
+_pos = SubResource("Resource_pv6hu")
+metadata/_custom_type_script = "uid://bkfr0sou4ekgh"
+
+[node name="BTSignalWalk" type="Node" parent="BTPlayer/RootSelector/SearchSequence" unique_id=2076883422]
+script = ExtResource("14_krw7v")
+metadata/_custom_type_script = "uid://epwt62m118dt"
+
+[node name="BTSetBBValue" type="Node" parent="BTPlayer/RootSelector/SearchSequence" unique_id=781868206]
+script = ExtResource("14_8hpjs")
+_value = SubResource("Resource_mrglp")
+metadata/_custom_type_script = "uid://b3sfmiecdqkq3"
+
+[node name="DamagePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1890793455]
+stream = ExtResource("19_s3ku4")
+volume_db = 24.0
+
+[connection signal="OnLost" from="Sight" to="BTPlayer/AIBlackboard" method="SetState" unbinds=1 binds= [&"searching"]]
+[connection signal="OnSpotted" from="Sight" to="BTPlayer/AIBlackboard" method="SetState" unbinds=1 binds= [&"chasing"]]
+[connection signal="OnSpotted" from="Sight" to="BTPlayer/AIBlackboard" method="SetNodeAlt" binds= [&"targ_node"]]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/ChaseSequence/BTSignalRun" to="." method="Run"]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/SearchSequence/BTSignalWalk" to="." method="Walk"]
