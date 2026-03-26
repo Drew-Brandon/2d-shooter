@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://b1hkge4a143qc"]
 
 [ext_resource type="Script" uid="uid://bmfy6q3yph5an" path="res://scripts/ai/AIBody2D.cs" id="1_on2e3"]
-[ext_resource type="Script" uid="uid://b1tbr74dvdy31" path="res://scripts/cast_info_scripts/ShapeCastInfo.cs" id="2_e4u34"]
+[ext_resource type="Script" uid="uid://b1tbr74dvdy31" path="res://scripts/cast_info/ShapeCastInfo.cs" id="2_e4u34"]
 [ext_resource type="Material" uid="uid://b0cqyj6e0iuw3" path="res://light_occlude_material.tres" id="3_t3mbt"]
 [ext_resource type="Texture2D" uid="uid://ckk0p2mfvdxhd" path="res://textures/top_down_green_cyber.png" id="4_xoqxs"]
 [ext_resource type="Script" uid="uid://vn4b4rapp73x" path="res://scripts/ai/Sight.cs" id="5_msw0c"]
-[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info_scripts/RayCastInfo.cs" id="6_jcoir"]
+[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info/RayCastInfo.cs" id="6_jcoir"]
 [ext_resource type="Script" uid="uid://bux4fcu6joiue" path="res://scripts/ai/ai_behavior/BTPlayer.cs" id="7_5a2i4"]
 [ext_resource type="Script" uid="uid://un8dflo4mpka" path="res://scripts/ai/ai_behavior/AIBlackboard.cs" id="8_xuqyk"]
 [ext_resource type="Script" uid="uid://boplkvsuodc04" path="res://scripts/ai/ai_behavior/behavior_nodes/parent_nodes/BTSelector.cs" id="9_7xx7o"]

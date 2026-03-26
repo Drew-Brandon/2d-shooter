@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://bbg6mo0px3mhl" path="res://scene/instances/aim_ui.tscn" id="1_2ppmm"]
 [ext_resource type="Script" uid="uid://6cydex2h6gdd" path="res://scripts/plus_variants/LabelPlus.cs" id="3_8pk1s"]
 [ext_resource type="PackedScene" uid="uid://piux43nr67ok" path="res://scene/instances/player_inventory_ui.tscn" id="4_knluo"]
-[ext_resource type="PackedScene" uid="uid://ok1hbr03oafx" path="res://scene/instances/small_container_inventory_ui.tscn" id="5_6n6eo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_knluo"]
 font_size = 32
@@ -38,7 +37,7 @@ anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
 offset_top = -256.0
-offset_right = 512.0
+offset_right = 384.0
 offset_bottom = 256.0
 grow_vertical = 2
 metadata/_edit_use_anchors_ = true
@@ -52,7 +51,3 @@ label_settings = SubResource("LabelSettings_knluo")
 script = ExtResource("3_8pk1s")
 _prefix = "Health: "
 metadata/_custom_type_script = "uid://6cydex2h6gdd"
-
-[node name="SmallContainerInventoryUI" parent="." unique_id=1572282343 instance=ExtResource("5_6n6eo")]
-visible = false
-layout_mode = 1

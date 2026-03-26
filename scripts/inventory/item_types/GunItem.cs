@@ -1,8 +1,14 @@
 using Godot;
+using Godot.Collections;
 
 [GlobalClass]
 public partial class GunItem : UseableItem
 {
+	[Export]
+	private float _damage = 10f;
+
+	public float Damage { get => _damage; }
+
 	[Export]
 	private int _maxClipAmmo = 10;
 
@@ -10,14 +16,6 @@ public partial class GunItem : UseableItem
 	/// The maximum amount of ammo that can be in a single clip.
 	/// </summary>
 	public int MaxClipAmmo { get => _maxClipAmmo; }
-
-	[Export]
-	private float _range = 2048f;
-
-	/// <summary>
-	/// The range of the gun.
-	/// </summary>
-	public float Range { get => _range; }
 
 	[Export]
 	private Item _ammoType = null;
@@ -35,20 +33,40 @@ public partial class GunItem : UseableItem
 	/// </summary>
 	public RayCastInfo RayCastInfo { get => _rayCastInfo; }
 
-	public override bool Use(PlayerBody2D plyr, PlayerInventory inventory, ItemStack stack)
+	protected void Fire(PlayerBody2D plyr, Vector2 targPos, BodyPart targetPart)
 	{
-		GunStack gunStack = (GunStack)stack;
+        Vector2 start = plyr.GlobalPosition;
+        PhysicsRayQueryParameters2D query = _rayCastInfo.CreateQuery(start, targPos, [plyr.GetRid()]);
+		RayCastResults results = RayCastInfo.IntersectRay(plyr, query);
 
-		if (gunStack.CurClipAmmo > 0)
+		if (results.Collider != null)
 		{
-			Vector2 start = plyr.GlobalPosition;
-			Vector2 end = plyr.GlobalPosition + plyr.GlobalTransform.X * _range;
-			_rayCastInfo.CreateQuery(start, end, [plyr.GetRid()]);
-			gunStack.CurClipAmmo--;
-			return true;
-		}
+			AIBody2D ai = results.Collider as AIBody2D;
 
-		return false;
+			if (ai != null)
+			{
+				ai.DamagePart(targetPart, _damage);
+			}
+		}
+    }
+
+	public virtual bool AimUse(PlayerBody2D plyr, FiniteInventory inventory, ItemStack stack, Vector2 usePos)
+	{
+        GunStack gunStack = (GunStack)stack;
+
+        if (gunStack.CurClipAmmo > 0)
+        {
+            Fire(plyr, usePos, BodyPart.Torso);
+            gunStack.CurClipAmmo--;
+            return true;
+        }
+
+        return false;
+    }
+
+	public override bool Use(PlayerBody2D plyr, FiniteInventory inventory, ItemStack stack, Vector2 usePos)
+	{
+		return AimUse(plyr, inventory, stack, usePos);
 	}
 
 	/// <summary>
@@ -57,7 +75,7 @@ public partial class GunItem : UseableItem
 	/// <param name="inventory">
 	/// The inventory the gun is being reloaded in.
 	/// </param>
-	public void Reload(PlayerInventory inventory, GunStack stack)
+	public void Reload(FiniteInventory inventory, GunStack stack)
 	{
 		inventory.ChargeStack(new ItemStack(_maxClipAmmo - stack.CurClipAmmo, _ammoType));
 	}

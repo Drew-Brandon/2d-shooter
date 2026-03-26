@@ -34,14 +34,10 @@ public partial class PlayerBody2D : PuppetBody2D
 	[Export]
 	private FiniteInventory _inventory;
 
-	private InventoryUI _containerUI = null;
-
 	[Export]
 	private InventoryUI _inventoryUI;
 
 	[ExportGroup("Misc")]
-	[Export]
-	private Weapon _curWeapon;
 
 	[Export]
 	private BodyAim _bodyAim;
@@ -76,9 +72,9 @@ public partial class PlayerBody2D : PuppetBody2D
 	{
 		Vector2 mousePos = GetGlobalMousePosition();
 		PhysicsRayQueryParameters2D sightQuery = _mouseCastSight.CreateQuery(GlobalPosition, mousePos, [GetRid()]);
-		Dictionary sightResults = RayCastInfo.IntersectRay(this, sightQuery);
+		RayCastResults sightResults = RayCastInfo.IntersectRay(this, sightQuery);
 
-		if (sightResults.Count == 0)
+		if (sightResults.Collider != null)
 		{
             Transform2D transform = new(0f, GetGlobalMousePosition());
             PhysicsShapeQueryParameters2D query = _mouseCastArea.CreateQuery(transform);
@@ -96,7 +92,7 @@ public partial class PlayerBody2D : PuppetBody2D
 	/// </param>
 	public void StartAim(AIBody2D ai)
 	{
-		if (_curWeapon != null && !_inventoryOpen)
+		if (!_inventoryOpen)
 		{
             _isAiming = true;
             _bodyAim.Show();
@@ -152,10 +148,7 @@ public partial class PlayerBody2D : PuppetBody2D
 	/// </param>
 	public void Attack(Vector2 target, BodyPart bodyPart = BodyPart.Torso)
 	{
-		if (_curWeapon != null)
-		{
-			_curWeapon.Attack(target, bodyPart);
-		}
+		
 	}
 
 	public override void _Ready()
@@ -177,10 +170,7 @@ public partial class PlayerBody2D : PuppetBody2D
         }
 
         #region Weapon Use
-        if (_curWeapon != null && !_inventoryOpen)
-        {
-            
-        }
+		
         #endregion
 
         #region Interaction
@@ -268,9 +258,9 @@ public partial class PlayerBody2D : PuppetBody2D
 
 	public InventoryUI OpenContainerUI(PackedScene newUI, FiniteInventory inventory)
 	{
-		_containerUI = newUI.Instantiate<InventoryUI>();
-		_mainUI.AddChild(_containerUI);
-		inventory.SetUI(_containerUI);
-		return _containerUI;
+		InventoryUI ui = newUI.Instantiate<InventoryUI>();
+		_mainUI.AddChild(ui);
+		inventory.SetUI(ui);
+		return ui;
 	}
 }

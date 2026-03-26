@@ -38,8 +38,8 @@ public partial class Sight : Node2D
 	private bool SightCheck(Node2D node)
 	{
 		PhysicsRayQueryParameters2D sightQuery = _sightCast.CreateQuery(GlobalPosition, node.GlobalPosition, _ignoreRidList);
-		Dictionary sightResults = RayCastInfo.IntersectRay(this, sightQuery);
-		Node2D hitNode = sightResults["collider"].As<Node2D>();
+		RayCastResults sightResults = RayCastInfo.IntersectRay(this, sightQuery);
+		Node2D hitNode = (Node2D)sightResults.Collider;
 		return hitNode == node;
 	}
 

@@ -40,10 +40,13 @@ public abstract partial class UseableItem : Item
 	/// <param name="stack">
 	/// The stack that this item is being used in.
 	/// </param>
+	/// <param name="usePos">
+	/// The position the item is being used on/at.
+	/// </param>
 	/// <returns>
 	/// Whether or not the item was successfuly used.
 	/// </returns>
-	public virtual bool Use(PlayerBody2D plyr, PlayerInventory inventory, ItemStack stack)
+	public virtual bool Use(PlayerBody2D plyr, FiniteInventory inventory, ItemStack stack, Vector2 usePos)
 	{
 		return false;
 	}

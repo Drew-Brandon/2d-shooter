@@ -4,27 +4,27 @@ using System;
 /// <summary>
 /// Represents an inventory with a finite/fixed size.
 /// </summary>
-public abstract partial class FiniteInventory<T> : Node where T : InventorySlot, new()
+public partial class FiniteInventory : Node
 {
 	[Export]
-	protected int Size = 16;
+	private int _size = 16;
 
 	[Export]
 	private ItemStackResource[] _startStacks = null;
 
-	protected T[] Slots = null;
+    private InventorySlot[] _slots = null;
 
-	protected void InitStacks()
+	private void InitStacks()
 	{
-		Slots = new T[Size];
+		_slots = new InventorySlot[_size];
 
-		for (int i = 0; i < Size; i++)
+		for (int i = 0; i < _size; i++)
 		{
-			Slots[i] = new T();
+			_slots[i] = new InventorySlot();
 		}
 	}
 
-	protected void AddStartStacks()
+    private void AddStartStacks()
 	{
 		if (_startStacks != null)
 		{
@@ -40,7 +40,7 @@ public abstract partial class FiniteInventory<T> : Node where T : InventorySlot,
 
 	public override void _Ready()
 	{
-		InitStacks<InventorySlot>();
+		InitStacks();
 		AddStartStacks();
 	}
 
@@ -55,9 +55,9 @@ public abstract partial class FiniteInventory<T> : Node where T : InventorySlot,
 	/// </returns>
 	public int AddStack(ItemStack toAdd)
 	{
-		for (int i = 0; i < Size; i++)
+		for (int i = 0; i < _size; i++)
 		{
-			toAdd.CurAmount = Slots[i].MergeStack(toAdd);
+			toAdd.CurAmount = _slots[i].MergeStack(toAdd);
 
 			if (toAdd.CurAmount == 0)
 			{
@@ -79,9 +79,9 @@ public abstract partial class FiniteInventory<T> : Node where T : InventorySlot,
 	/// </returns>
 	public int ChargeStack(ItemStack toRemove)
 	{
-		for (int i = 0; i < Size; i++)
+		for (int i = 0; i < _size; i++)
 		{
-			Slots[i].ChargeStack(toRemove);
+			_slots[i].ChargeStack(toRemove);
 
 			if (toRemove.CurAmount == 0)
 			{
@@ -100,9 +100,9 @@ public abstract partial class FiniteInventory<T> : Node where T : InventorySlot,
 	/// </param>
 	public void SetUI(InventoryUI ui)
 	{
-		for (int i = 0; i < Size; i++)
+		for (int i = 0; i < _size; i++)
 		{
-			Slots[i].SetUI(ui.GetSlot(i));
+			_slots[i].SetUI(ui.GetSlot(i));
 		}
 	}
 
@@ -111,9 +111,14 @@ public abstract partial class FiniteInventory<T> : Node where T : InventorySlot,
 	/// </summary>
 	public void ClearUI()
 	{
-		for (int i = 0; i < Size; i++)
+		for (int i = 0; i < _size; i++)
 		{
-			Slots[i].ClearUI();
+			_slots[i].ClearUI();
 		}
+	}
+
+	public InventorySlot GetSlot(int index)
+	{
+		return _slots[index];
 	}
 }

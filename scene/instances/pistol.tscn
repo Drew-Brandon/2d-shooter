@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://pq0cqcqdw8dn"]
 
-[ext_resource type="Script" uid="uid://cpwfnxpli45lq" path="res://scripts/weapons/Gun.cs" id="1_ev1cm"]
-[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info_scripts/RayCastInfo.cs" id="2_v5rtd"]
+[ext_resource type="Script" path="res://scripts/weapons/Gun.cs" id="1_ev1cm"]
+[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info/RayCastInfo.cs" id="2_v5rtd"]
 [ext_resource type="Resource" uid="uid://c42yesp5dqnt6" path="res://ammo_item.tres" id="3_8mvng"]
 [ext_resource type="AudioStream" uid="uid://b08rweq08nlx6" path="res://sfx/pistol_fire.wav" id="3_ev1cm"]
 [ext_resource type="AudioStream" uid="uid://jqx7o10de7x4" path="res://sfx/pistol_reload.wav" id="4_v5rtd"]

@@ -59,8 +59,9 @@ public partial class RayCastInfo : CastInfo
 	/// <returns>
 	/// The result of the intersection.
 	/// </returns>
-	public static Dictionary IntersectRay(Node2D node, PhysicsRayQueryParameters2D query)
+	public static RayCastResults IntersectRay(Node2D node, PhysicsRayQueryParameters2D query)
 	{
-		return node.GetWorld2D().DirectSpaceState.IntersectRay(query);
+		Dictionary results = node.GetWorld2D().DirectSpaceState.IntersectRay(query);
+		return results.Count > 0 ? new RayCastResults(results) : new RayCastResults();
 	}
 }
