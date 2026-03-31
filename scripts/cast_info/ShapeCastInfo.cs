@@ -49,10 +49,29 @@ public partial class ShapeCastInfo : CastInfo
 	/// The query to do the intersection with.
 	/// </param>
 	/// <returns>
-	/// The result of the intersection.
+	/// The results of the intersection.
 	/// </returns>
-	public static Array<Dictionary> IntersectShape(Node2D node, PhysicsShapeQueryParameters2D query)
+	public static ShapeCastResults[] IntersectShape(Node2D node, PhysicsShapeQueryParameters2D query)
 	{
-		return node.GetWorld2D().DirectSpaceState.IntersectShape(query);
+		Array<Dictionary> results1 = node.GetWorld2D().DirectSpaceState.IntersectShape(query);
+
+		if (results1 == null)
+		{
+			return null;
+		}
+
+		ShapeCastResults[] results2 = new ShapeCastResults[results1.Count];
+		
+		for (int i = 0; i < results1.Count; i++)
+		{
+            results2[i] = new ShapeCastResults
+            {
+                Shape = results1[i]["shape"].AsInt32(),
+                ColliderRid = results1[i]["rid"].AsRid(),
+                Collider = results1[i]["collider"].AsGodotObject()
+            };
+        }
+
+		return results2;
 	}
 }

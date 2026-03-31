@@ -1,19 +1,24 @@
 [gd_scene format=3 uid="uid://t8b2fpva6x1i"]
 
 [ext_resource type="Script" uid="uid://nenig6mu1itd" path="res://scripts/inventory/ui/InventorySlotUI.cs" id="1_g63qe"]
+[ext_resource type="Texture2D" uid="uid://brsu86vfkghpm" path="res://textures/slot_ui.png" id="1_pr7xm"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h238m"]
+texture = ExtResource("1_pr7xm")
 
 [sub_resource type="LabelSettings" id="LabelSettings_t5ene"]
 font_size = 32
 
 [node name="InventorySlotUI" type="AspectRatioContainer" unique_id=554242975]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 128.0
+offset_bottom = 128.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SlotPanel" type="Panel" parent="." unique_id=140953446 node_paths=PackedStringArray("_intLabel", "_iconRect", "_previewNode")]
 layout_mode = 2
 focus_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_h238m")
 script = ExtResource("1_g63qe")
 _intLabel = NodePath("AmountLabel")
 _iconRect = NodePath("ItemIcon")

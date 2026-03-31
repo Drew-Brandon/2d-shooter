@@ -2,7 +2,7 @@
 
 [ext_resource type="TileSet" uid="uid://il8puvwuhg6e" path="res://base_tile_set.tres" id="1_5nv42"]
 [ext_resource type="PackedScene" uid="uid://bo7qmxn41tg0b" path="res://scene/instances/player_body.tscn" id="2_ybs4j"]
-[ext_resource type="PackedScene" uid="uid://b1hkge4a143qc" path="res://scene/instances/ai_roam.tscn" id="3_5nv42"]
+[ext_resource type="PackedScene" uid="uid://b1hkge4a143qc" path="res://scene/instances/ai/ai_roam.tscn" id="3_5nv42"]
 [ext_resource type="Script" uid="uid://bolbkbk53rl76" path="res://scripts/ai/RoamArea.cs" id="4_ybs4j"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_q0q7k"]
@@ -20,7 +20,7 @@ tile_map_data = PackedByteArray("AAD///7/AQAAAAAAAAAAAP7/AQAAAAAAAAD///3/AQAAAAA
 tile_set = ExtResource("1_5nv42")
 
 [node name="PlayerBody" parent="." unique_id=2059275199 instance=ExtResource("2_ybs4j")]
-position = Vector2(-220, 110)
+position = Vector2(-288, -32)
 
 [node name="BulletTracer" type="Line2D" parent="." unique_id=1885586691]
 width = 4.0

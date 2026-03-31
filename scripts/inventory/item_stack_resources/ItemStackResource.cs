@@ -6,9 +6,15 @@ using Godot;
 [GlobalClass]
 public partial class ItemStackResource : Resource
 {
+	/// <summary>
+	/// The amount of the stack.
+	/// </summary>
 	[Export]
 	protected int Amount = 0;
 
+	/// <summary>
+	/// The item of the stack.
+	/// </summary>
 	[Export]
 	protected Item Item = null;
 

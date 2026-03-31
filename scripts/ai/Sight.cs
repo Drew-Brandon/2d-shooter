@@ -50,12 +50,12 @@ public partial class Sight : Node2D
 
 		// Perform the range cast.
 		PhysicsShapeQueryParameters2D rangeQuery = _rangeCast.CreateQuery(GlobalTransform, _ignoreRidList);
-		Array<Dictionary> rangeResults = ShapeCastInfo.IntersectShape(this, rangeQuery);
+		ShapeCastResults[] rangeResults = ShapeCastInfo.IntersectShape(this, rangeQuery);
 
 		// Comb through each node in range.
-		for (int i = 0; i < rangeResults.Count; i++)
+		for (int i = 0; i < rangeResults.Length; i++)
 		{
-			Node2D node = rangeResults[i]["collider"].As<Node2D>();
+			Node2D node = (Node2D)rangeResults[i].Collider;
 			float angle = GetAngleTo(node.GlobalPosition);
 
 			/*

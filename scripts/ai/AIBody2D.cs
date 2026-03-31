@@ -81,11 +81,11 @@ public partial class AIBody2D : PuppetBody2D, IInteractable
 	private void AttackUpdate()
 	{
 		PhysicsShapeQueryParameters2D query = _attackCastInfo.CreateQuery(GlobalTransform, [GetRid()]);
-		Array<Dictionary> results = ShapeCastInfo.IntersectShape(this, query);
+		ShapeCastResults[] results = ShapeCastInfo.IntersectShape(this, query);
 
-		for (int i = 0; i < results.Count; i++)
+		for (int i = 0; i < results.Length; i++)
 		{
-			PlayerBody2D plyr = results[i]["collider"].As<Node2D>() as PlayerBody2D;
+			PlayerBody2D plyr = results[i].Collider as PlayerBody2D;
 
 			if (plyr != null)
 			{

@@ -1,5 +1,8 @@
 using Godot;
 
+/// <summary>
+/// A container that is used to interface with a inventory of finite size.
+/// </summary>
 public partial class FiniteContainer : Node2D, IInteractable
 {
 	private bool _isOpen = false;
@@ -18,7 +21,8 @@ public partial class FiniteContainer : Node2D, IInteractable
 
 		if (_isOpen)
 		{
-			_curUI = plyr.OpenContainerUI(_uiScene, _inventory);
+			_curUI = plyr.AddUI<InventoryUI>(_uiScene);
+			_inventory.SetUI(_curUI);
 		}
 		else
 		{

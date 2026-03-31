@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://db42h6n7qx87y"
-path="res://.godot/imported/MetalWall.png-2c6adac4dadbd22833a2fbda52857f2c.ctex"
+uid="uid://cd8xkrr7lhaxk"
+path="res://.godot/imported/panel_ui.png-b31d440ad0d02f92ab715f4e68a1366f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://textures/MetalWall.png"
-dest_files=["res://.godot/imported/MetalWall.png-2c6adac4dadbd22833a2fbda52857f2c.ctex"]
+source_file="res://textures/panel_ui.png"
+dest_files=["res://.godot/imported/panel_ui.png-b31d440ad0d02f92ab715f4e68a1366f.ctex"]
 
 [params]
 

@@ -100,6 +100,13 @@ public partial class PuppetBody2D : CharacterBody2D
 		CurHealth = _maxHealth;
 		_curSpeed = _walkSpeed;
 	}
+
+	/// <summary>
+	/// Gets the health of the body.
+	/// </summary>
+	/// <returns>
+	/// The current health of the body.
+	/// </returns>
 	public float GetHealth()
 	{
 		return CurHealth;

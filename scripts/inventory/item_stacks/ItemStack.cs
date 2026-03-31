@@ -16,7 +16,7 @@ public partial class ItemStack : ICloneable
 	public Item CurItem = null;
 
 	/// <summary>
-	/// The main constructor for the ItemStack structure.
+	/// The main constructor for ItemStack.
 	/// </summary>
 	/// <param name="amount">
 	/// The amount of items to be stored within this stack.

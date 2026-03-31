@@ -61,7 +61,25 @@ public partial class RayCastInfo : CastInfo
 	/// </returns>
 	public static RayCastResults IntersectRay(Node2D node, PhysicsRayQueryParameters2D query)
 	{
-		Dictionary results = node.GetWorld2D().DirectSpaceState.IntersectRay(query);
-		return results.Count > 0 ? new RayCastResults(results) : new RayCastResults();
+		Dictionary results1 = node.GetWorld2D().DirectSpaceState.IntersectRay(query);
+		RayCastResults results2;
+
+		if (results1.Count > 0)
+		{
+            results2 = new RayCastResults
+            {
+                Shape = results1["shape"].AsInt32(),
+                ColliderRid = results1["rid"].AsRid(),
+                Normal = results1["normal"].AsVector2(),
+                Position = results1["position"].AsVector2(),
+                Collider = results1["collider"].AsGodotObject()
+            };
+        }
+		else
+		{
+			results2 = new RayCastResults();
+		}
+
+		return results2;
 	}
 }

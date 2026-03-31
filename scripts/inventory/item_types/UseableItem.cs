@@ -15,6 +15,14 @@ public abstract partial class UseableItem : Item
 	public PackedScene DisplayUI { get => _displayUI; }
 
 	/// <summary>
+	/// Called when the player equips the item.
+	/// </summary>
+	protected virtual void OnEquip()
+	{
+		
+	}
+
+	/// <summary>
 	/// Equips the item with the specified player.
 	/// </summary>
 	/// <param name="plyr">
@@ -25,6 +33,7 @@ public abstract partial class UseableItem : Item
 	/// </returns>
 	public Control Equip(PlayerBody2D plyr)
 	{
+		OnEquip();
 		return plyr.AddUI(_displayUI);
 	}
 
@@ -33,9 +42,6 @@ public abstract partial class UseableItem : Item
 	/// </summary>
 	/// <param name="plyr">
 	/// The player that is using this item.
-	/// </param>
-	/// <param name="inventory">
-	/// The inventory that this item is being used in.
 	/// </param>
 	/// <param name="stack">
 	/// The stack that this item is being used in.
@@ -46,7 +52,7 @@ public abstract partial class UseableItem : Item
 	/// <returns>
 	/// Whether or not the item was successfuly used.
 	/// </returns>
-	public virtual bool Use(PlayerBody2D plyr, FiniteInventory inventory, ItemStack stack, Vector2 usePos)
+	public virtual bool Use(PlayerBody2D plyr, ItemStack stack, Vector2 usePos)
 	{
 		return false;
 	}

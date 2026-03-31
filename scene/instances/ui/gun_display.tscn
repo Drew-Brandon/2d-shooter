@@ -37,17 +37,3 @@ pivot_offset_ratio = Vector2(0, 1)
 label_settings = SubResource("LabelSettings_mby2p")
 script = ExtResource("2_yk5wf")
 metadata/_custom_type_script = "uid://6cydex2h6gdd"
-
-[node name="ReserveAmmoLabel" type="Label" parent="." unique_id=1461425507]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_left = 168.0
-offset_top = -34.0
-offset_right = 208.0
-grow_vertical = 0
-pivot_offset_ratio = Vector2(0, 1)
-label_settings = SubResource("LabelSettings_mby2p")
-script = ExtResource("2_yk5wf")
-metadata/_custom_type_script = "uid://6cydex2h6gdd"

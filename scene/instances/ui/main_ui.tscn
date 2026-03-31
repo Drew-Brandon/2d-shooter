@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://du3p4e2031ns8"]
 
-[ext_resource type="PackedScene" uid="uid://bbg6mo0px3mhl" path="res://scene/instances/aim_ui.tscn" id="1_2ppmm"]
+[ext_resource type="PackedScene" uid="uid://bbg6mo0px3mhl" path="res://scene/instances/ui/aim_ui.tscn" id="1_2ppmm"]
 [ext_resource type="Script" uid="uid://6cydex2h6gdd" path="res://scripts/plus_variants/LabelPlus.cs" id="3_8pk1s"]
-[ext_resource type="PackedScene" uid="uid://piux43nr67ok" path="res://scene/instances/player_inventory_ui.tscn" id="4_knluo"]
+[ext_resource type="PackedScene" uid="uid://piux43nr67ok" path="res://scene/instances/ui/player_inventory_ui.tscn" id="4_knluo"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_knluo"]
 font_size = 32

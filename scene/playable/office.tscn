@@ -2,13 +2,13 @@
 
 [ext_resource type="TileSet" uid="uid://il8puvwuhg6e" path="res://base_tile_set.tres" id="1_12boa"]
 [ext_resource type="PackedScene" uid="uid://bo7qmxn41tg0b" path="res://scene/instances/player_body.tscn" id="2_73385"]
-[ext_resource type="PackedScene" uid="uid://b1hkge4a143qc" path="res://scene/instances/ai_roam.tscn" id="3_8pya3"]
+[ext_resource type="PackedScene" uid="uid://b1hkge4a143qc" path="res://scene/instances/ai/ai_roam.tscn" id="3_8pya3"]
 [ext_resource type="Script" uid="uid://bolbkbk53rl76" path="res://scripts/ai/RoamArea.cs" id="4_6l2dr"]
 [ext_resource type="Texture2D" uid="uid://cigscrtbi2nih" path="res://textures/icon.svg" id="5_8pya3"]
 [ext_resource type="Script" uid="uid://dlt3o5bhg017f" path="res://scripts/inventory/container_types/FiniteContainer.cs" id="5_crxcv"]
-[ext_resource type="PackedScene" uid="uid://ok1hbr03oafx" path="res://scene/instances/small_container_inventory_ui.tscn" id="6_pv62h"]
+[ext_resource type="PackedScene" uid="uid://ok1hbr03oafx" path="res://scene/instances/ui/small_container_inventory_ui.tscn" id="6_pv62h"]
 [ext_resource type="Script" uid="uid://es7opjafgclv" path="res://scripts/inventory/inventory_types/FiniteInventory.cs" id="7_pv62h"]
-[ext_resource type="Resource" uid="uid://c42yesp5dqnt6" path="res://ammo_item.tres" id="9_pv62h"]
+[ext_resource type="Resource" uid="uid://c42yesp5dqnt6" path="res://item_types/ammo_item.tres" id="9_pv62h"]
 [ext_resource type="Script" uid="uid://c2wl584cxua85" path="res://scripts/inventory/item_stack_resources/ItemStackResource.cs" id="9_wpcc4"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_ktbo2"]

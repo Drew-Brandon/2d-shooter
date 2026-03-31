@@ -12,7 +12,7 @@ public partial class FiniteInventory : Node
 	[Export]
 	private ItemStackResource[] _startStacks = null;
 
-    private InventorySlot[] _slots = null;
+	private InventorySlot[] _slots = null;
 
 	private void InitStacks()
 	{
@@ -24,7 +24,7 @@ public partial class FiniteInventory : Node
 		}
 	}
 
-    private void AddStartStacks()
+	private void AddStartStacks()
 	{
 		if (_startStacks != null)
 		{
@@ -117,6 +117,15 @@ public partial class FiniteInventory : Node
 		}
 	}
 
+	/// <summary>
+	/// Gets the slot at the specified index.
+	/// </summary>
+	/// <param name="index">
+	/// The index of the slot to get.
+	/// </param>
+	/// <returns>
+	/// The slot at the specified index.
+	/// </returns>
 	public InventorySlot GetSlot(int index)
 	{
 		return _slots[index];

@@ -11,6 +11,33 @@ public partial class PlayerBody2D : PuppetBody2D
 
 	private int _curWeaponIndex = -1;
 
+	private UseableItem _equippedItem = null;
+
+	private InventorySlot _equippedSlot = null;
+
+	private Control _equippedDisplay = null;
+
+	[Export]
+	private BodyAim _bodyAim;
+
+	[Export]
+	private Node2D _swivel;
+
+	[Export]
+	private Texture2D _crosshair;
+
+	[Export]
+	private Control _mainUI;
+
+	private bool _isAlive = true;
+
+	[Export]
+	private bool _canDie = true;
+
+	private bool _isRecovering = false;
+
+	private CancellationTokenSource _cts = new();
+
 	[ExportGroup("Health and Damage")]
 	[Export]
 	private double _recoveryTime = 1d;
@@ -37,28 +64,22 @@ public partial class PlayerBody2D : PuppetBody2D
 	[Export]
 	private InventoryUI _inventoryUI;
 
-	[ExportGroup("Misc")]
+	private void Equip(int index)
+	{
+		if (_equippedDisplay != null)
+		{
+			_equippedDisplay.QueueFree();
+			_equippedDisplay = null;
+		}
 
-	[Export]
-	private BodyAim _bodyAim;
+		_equippedSlot = _inventory.GetSlot(index);
+		_equippedItem = _equippedSlot.CurItem as UseableItem;
 
-	[Export]
-	private Node2D _swivel;
-
-	[Export]
-	private Texture2D _crosshair;
-
-	[Export]
-	private Control _mainUI;
-
-	private bool _isAlive = true;
-
-	[Export]
-	private bool _canDie = true;
-
-	private bool _isRecovering = false;
-
-	private CancellationTokenSource _cts = new();
+		if (_equippedItem != null)
+		{
+			_equippedDisplay = _equippedItem.Equip(this);
+		}
+	}
 
 	/// <summary>
 	/// Performs a raycast towards the mouse's position,
@@ -68,15 +89,15 @@ public partial class PlayerBody2D : PuppetBody2D
 	/// The results of the cast.
 	/// This will be null if the cast was obstructed.
 	/// </returns>
-	private Array<Dictionary> MouseCast()
+	private ShapeCastResults[] MouseCast()
 	{
 		Vector2 mousePos = GetGlobalMousePosition();
 		PhysicsRayQueryParameters2D sightQuery = _mouseCastSight.CreateQuery(GlobalPosition, mousePos, [GetRid()]);
 		RayCastResults sightResults = RayCastInfo.IntersectRay(this, sightQuery);
 
-		if (sightResults.Collider != null)
+		if (sightResults.Collider == null)
 		{
-            Transform2D transform = new(0f, GetGlobalMousePosition());
+            Transform2D transform = new(0f, mousePos);
             PhysicsShapeQueryParameters2D query = _mouseCastArea.CreateQuery(transform);
             return ShapeCastInfo.IntersectShape(this, query);
         }
@@ -114,16 +135,16 @@ public partial class PlayerBody2D : PuppetBody2D
 	
 	private void Interact()
 	{
-		Array<Dictionary> castResults = MouseCast();
+		ShapeCastResults[] castResults = MouseCast();
 
 		if (castResults == null)
 		{
 			return;
 		}
 
-		for (int i = 0; i < castResults.Count;i++)
+		for (int i = 0; i < castResults.Length; i++)
 		{
-            IInteractable interactable = castResults[i]["collider"].As<Node2D>() as IInteractable;
+            IInteractable interactable = castResults[i].Collider as IInteractable;
 
 			if (interactable != null)
 			{
@@ -148,7 +169,12 @@ public partial class PlayerBody2D : PuppetBody2D
 	/// </param>
 	public void Attack(Vector2 target, BodyPart bodyPart = BodyPart.Torso)
 	{
-		
+		GunItem gun = _equippedItem as GunItem;
+
+		if (gun != null)
+		{
+			gun.AimUse(this, _equippedSlot.Stack, _bodyAim.Target.GlobalPosition, bodyPart);
+		}
 	}
 
 	public override void _Ready()
@@ -169,23 +195,40 @@ public partial class PlayerBody2D : PuppetBody2D
             Walk();
         }
 
-        #region Weapon Use
-		
-        #endregion
+		if (Input.IsActionJustPressed("equip_0"))
+		{
+			Equip(0);
+		}
+		else if (Input.IsActionJustPressed("equip_1"))
+        {
+            Equip(1);
+        }
+		else if (Input.IsActionJustPressed("equip_2"))
+        {
+            Equip(2);
+        }
 
-        #region Interaction
-        if (Input.IsActionJustPressed("use"))
+        if (Input.IsActionJustPressed("interact"))
         {
             if (_isAiming)
-			{
-				StopAim();
-			}
-			else
-			{
-				Interact();
-			}
+            {
+                StopAim();
+            }
+            else
+            {
+                Interact();
+            }
         }
-        #endregion
+
+        if (Input.IsActionJustPressed("reload") && _equippedItem is GunItem)
+        {
+            ((GunItem)_equippedItem).Reload(_inventory, (GunStack)_equippedSlot.Stack);
+        }
+
+        if (Input.IsActionJustPressed("use") && !_isAiming && _equippedItem != null)
+		{
+			_equippedItem.Use(this, _equippedSlot.Stack, GetGlobalMousePosition());
+		}
 
         if (Input.IsActionJustPressed("toggle_inventory"))
         {
@@ -211,6 +254,12 @@ public partial class PlayerBody2D : PuppetBody2D
 		MoveUpdate(deltaF);
 	}
 
+	/// <summary>
+	/// Damages the player.
+	/// </summary>
+	/// <param name="amount">
+	/// The amount of damage to deal.
+	/// </param>
 	public void Damage(float amount)
 	{
 		if (_isAlive)
@@ -249,6 +298,15 @@ public partial class PlayerBody2D : PuppetBody2D
 		}
 	}
 
+	/// <summary>
+	/// Adds the specified UI to the player's UI.
+	/// </summary>
+	/// <param name="newUI">
+	/// The UI to add.
+	/// </param>
+	/// <returns>
+	/// The UI added to the player.
+	/// </returns>
 	public Control AddUI(PackedScene newUI)
 	{
 		Control clone = newUI.Instantiate<Control>();
@@ -256,11 +314,20 @@ public partial class PlayerBody2D : PuppetBody2D
 		return clone;
 	}
 
-	public InventoryUI OpenContainerUI(PackedScene newUI, FiniteInventory inventory)
+	/// <summary>
+	/// Adds the specified UI to the player's UI. 
+    /// </summary>
+    /// <typeparam name="T">
+	/// The type of the UI to add. Must be descendant of the Control class.
+	/// </typeparam>
+    /// <param name="newUI">
+	/// The UI to add.
+	/// </param>
+    /// <returns>
+	/// The UI added to the player.
+	/// </returns>
+    public T AddUI<T>(PackedScene newUI) where T : Control
 	{
-		InventoryUI ui = newUI.Instantiate<InventoryUI>();
-		_mainUI.AddChild(ui);
-		inventory.SetUI(ui);
-		return ui;
+		return AddUI(newUI) as T;
 	}
 }

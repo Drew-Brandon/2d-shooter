@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="GunItem" format=3 uid="uid://cx0yu1yyh0yvs"]
+
+[ext_resource type="Script" uid="uid://e35upiyjurg4" path="res://scripts/inventory/item_types/GunItem.cs" id="1_0ms0t"]
+[ext_resource type="Resource" uid="uid://c42yesp5dqnt6" path="res://item_types/ammo_item.tres" id="1_occur"]
+[ext_resource type="Texture2D" uid="uid://d4bugixakwuau" path="res://textures/crosshair.png" id="2_dkuxl"]
+[ext_resource type="PackedScene" uid="uid://coayws5dxx1ol" path="res://scene/instances/ui/gun_display.tscn" id="2_mgbx1"]
+[ext_resource type="Texture2D" uid="uid://5vtbxfbx5xml" path="res://textures/pistol.png" id="3_dkuxl"]
+[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info/RayCastInfo.cs" id="4_2d5ar"]
+
+[sub_resource type="Resource" id="Resource_1fkc2"]
+script = ExtResource("4_2d5ar")
+_collisionMask = 13
+metadata/_custom_type_script = "uid://blhr4idq26v1e"
+
+[resource]
+script = ExtResource("1_0ms0t")
+_ammoType = ExtResource("1_occur")
+_rayCastInfo = SubResource("Resource_1fkc2")
+_cursor = ExtResource("2_dkuxl")
+_displayUI = ExtResource("2_mgbx1")
+_maxAmount = 1
+_name = &"pistol"
+_icon = ExtResource("3_dkuxl")
+metadata/_custom_type_script = "uid://e35upiyjurg4"

@@ -4,6 +4,15 @@ public partial class BodyAim : Control
 {
 	private bool _inMotion = false;
 
+	[Export]
+	private PlayerBody2D _plyr;
+
+	[Export]
+	private Control _bodyParent;
+
+	[Export]
+	private BodyPartButton[] _bodyPartButtons;
+
 	[ExportGroup("Scaling")]
 	[Export]
 	private float _minScale = 0.5f;
@@ -27,16 +36,6 @@ public partial class BodyAim : Control
 	/// The target that is currently being aimed at.
 	/// </summary>
 	public AIBody2D Target { get => _target; set => _target = value; }
-
-	[ExportGroup("Misc")]
-	[Export]
-	private PlayerBody2D _plyr;
-
-	[Export]
-	private Control _bodyParent;
-
-	[Export]
-	private BodyPartButton[] _bodyPartButtons;
 
 	/// <summary>
 	/// Called when a part of the body is hit.
@@ -93,7 +92,7 @@ public partial class BodyAim : Control
 		UpdateScale();
 		_animPlyr.SpeedScale = _target.CurSpeed / _target.WalkSpeed;
 
-		if (Input.IsActionJustPressed("attack"))
+		if (Input.IsActionJustPressed("use"))
 		{
 			Attack();
 		}

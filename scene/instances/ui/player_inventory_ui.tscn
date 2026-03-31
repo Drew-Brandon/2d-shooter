@@ -1,7 +1,11 @@
 [gd_scene format=3 uid="uid://piux43nr67ok"]
 
 [ext_resource type="Script" uid="uid://clvdxgxgpe6qm" path="res://scripts/inventory/ui/InventoryUI.cs" id="1_g3ha6"]
-[ext_resource type="PackedScene" uid="uid://t8b2fpva6x1i" path="res://scene/instances/inventory_slot_ui.tscn" id="2_50t8n"]
+[ext_resource type="PackedScene" uid="uid://t8b2fpva6x1i" path="res://scene/instances/ui/inventory_slot_ui.tscn" id="2_50t8n"]
+[ext_resource type="Texture2D" uid="uid://b2y6jl1ajgbs0" path="res://textures/hotbar_slot_ui.png" id="3_gmqom"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uhd84"]
+texture = ExtResource("3_gmqom")
 
 [node name="PlayerInventoryUI" type="Panel" unique_id=1728241136 node_paths=PackedStringArray("_slotContainer")]
 offset_right = 768.0
@@ -12,24 +16,36 @@ _slotContainer = NodePath("Container")
 
 [node name="Container" type="GridContainer" parent="." unique_id=298833455]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = -1
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = -32.0
+offset_bottom = -32.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 16
+theme_override_constants/v_separation = 16
 columns = 3
 
-[node name="InventorySlotUI" parent="Container" unique_id=554242975 instance=ExtResource("2_50t8n")]
-modulate = Color(0.64, 0.64, 0.64, 1)
+[node name="InventorySlotUI1" parent="Container" unique_id=554242975 instance=ExtResource("2_50t8n")]
 layout_mode = 2
 
-[node name="InventorySlotUI2" parent="Container" unique_id=2094892136 instance=ExtResource("2_50t8n")]
-modulate = Color(0.64, 0.64, 0.64, 1)
+[node name="SlotPanel" parent="Container/InventorySlotUI1" index="0" unique_id=140953446]
+theme_override_styles/panel = SubResource("StyleBoxTexture_uhd84")
+
+[node name="InventorySlotUI2" parent="Container" unique_id=1168706482 instance=ExtResource("2_50t8n")]
 layout_mode = 2
 
-[node name="InventorySlotUI3" parent="Container" unique_id=28571800 instance=ExtResource("2_50t8n")]
-modulate = Color(0.64, 0.64, 0.64, 1)
+[node name="SlotPanel" parent="Container/InventorySlotUI2" index="0" unique_id=140953446]
+theme_override_styles/panel = SubResource("StyleBoxTexture_uhd84")
+
+[node name="InventorySlotUI3" parent="Container" unique_id=224343547 instance=ExtResource("2_50t8n")]
 layout_mode = 2
+
+[node name="SlotPanel" parent="Container/InventorySlotUI3" index="0" unique_id=140953446]
+theme_override_styles/panel = SubResource("StyleBoxTexture_uhd84")
 
 [node name="InventorySlotUI4" parent="Container" unique_id=354287944 instance=ExtResource("2_50t8n")]
 layout_mode = 2
@@ -57,3 +73,7 @@ layout_mode = 2
 
 [node name="InventorySlotUI12" parent="Container" unique_id=931434072 instance=ExtResource("2_50t8n")]
 layout_mode = 2
+
+[editable path="Container/InventorySlotUI1"]
+[editable path="Container/InventorySlotUI2"]
+[editable path="Container/InventorySlotUI3"]

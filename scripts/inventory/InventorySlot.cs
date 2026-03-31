@@ -1,21 +1,24 @@
 using Godot;
+using System;
 
 /// <summary>
 /// Represents a slot in an inventory that can be merged, exchanged and charged.
 /// </summary>
 public partial class InventorySlot
 {
-	protected ItemStack Stack = null;
+	private ItemStack _stack = null;
+
+	public ItemStack Stack { get => _stack; }
 
 	/// <summary>
 	/// The current amount in the slot's stack.
-    /// </summary>
-    public int CurAmount { get => Stack.CurAmount; }
+	/// </summary>
+	public int CurAmount { get => _stack != null ? _stack.CurAmount : 0; }
 
-    /// <summary>
+	/// <summary>
 	/// The current item in the slot's stack.
 	/// </summary>
-	public Item CurItem { get => Stack.CurItem; }
+	public Item CurItem { get => _stack != null ? _stack.CurItem : null; }
 
 	private InventorySlotUI _slotUI = null;
 
@@ -23,21 +26,27 @@ public partial class InventorySlot
 	{
 		if (_slotUI != null)
 		{
-			if (Stack == null)
+			if (_stack == null)
 			{
 				_slotUI.ClearIntLabel();
 				_slotUI.SetIcon(null);
 			}
-			else if (Stack is GunStack)
-			{
-				GunStack gunStack = (GunStack)Stack;
-				_slotUI.SetIntLabel(gunStack.CurClipAmmo);
-				_slotUI.SetIcon(gunStack.CurItem.Icon);
-			}
 			else
 			{
-				_slotUI.SetIntLabel(Stack.CurAmount);
-				_slotUI.SetIcon(Stack.CurItem.Icon);
+				StringName type = _stack.GetType().ToString();
+
+                switch (type)
+				{
+					case "GunStack":
+                        GunStack gunStack = (GunStack)_stack;
+                        _slotUI.SetIntLabel(gunStack.CurClipAmmo);
+                        _slotUI.SetIcon(gunStack.CurItem.Icon);
+                        break;
+					case "ItemStack":
+                        _slotUI.SetIntLabel(_stack.CurAmount);
+                        _slotUI.SetIcon(_stack.CurItem.Icon);
+                        break;
+				}	
 			}
 		}
 	}
@@ -59,73 +68,73 @@ public partial class InventorySlot
 
 	/// <summary>
 	/// Merges the slot's stack with the other specified stack.
-    /// The process of merging mainly involves adding a certain amount to a stack.
-    /// </summary>
-    /// <param name="toMerge">
-    /// The stack to merge with.
-    /// </param>
-    /// <returns>
-    /// The amount that could not be added to the stack.
-    /// </returns>
-    public int MergeStack(ItemStack toMerge)
-    {
-        /*
+	/// The process of merging mainly involves adding a certain amount to a stack.
+	/// </summary>
+	/// <param name="toMerge">
+	/// The stack to merge with.
+	/// </param>
+	/// <returns>
+	/// The amount that could not be added to the stack.
+	/// </returns>
+	public int MergeStack(ItemStack toMerge)
+	{
+		/*
 		 * Perform the merge if the items of the stacks do match.
 		 * If they do not match, then do not perform the merge.
 		 */
-        if (Stack == null || Stack.CurItem.Name == toMerge.CurItem.Name)
-        {
-            int prevAmount = Stack == null ? 0 : Stack.CurAmount;
-            int newAmount = Mathf.Clamp(prevAmount + toMerge.CurAmount, 0, toMerge.CurItem.MaxAmount);
-            Stack = (ItemStack)toMerge.Clone();
-            Stack.CurAmount = newAmount;
-            Stack.CurItem = toMerge.CurItem;
+		if (_stack == null || _stack.CurItem.Name == toMerge.CurItem.Name)
+		{
+			int prevAmount = _stack == null ? 0 : _stack.CurAmount;
+			int newAmount = Mathf.Clamp(prevAmount + toMerge.CurAmount, 0, toMerge.CurItem.MaxAmount);
+			_stack = (ItemStack)toMerge.Clone();
+			_stack.CurAmount = newAmount;
+			_stack.CurItem = toMerge.CurItem;
 
-            UpdateUI();
+			UpdateUI();
 
-            toMerge.CurAmount -= newAmount - prevAmount;
-        }
+			toMerge.CurAmount -= newAmount - prevAmount;
+		}
 
-        return toMerge.CurAmount;
-    }
+		return toMerge.CurAmount;
+	}
 
-    /// <summary>
+	/// <summary>
 	/// Exchanges this slot's stack with the other specified slot's stack.
-    /// </summary>
-    /// <param name="other">
-    /// The slot to exchange with.
-    /// </param>
-    public void ExchangeSlot(InventorySlot other)
-    {
-        /*
+	/// </summary>
+	/// <param name="other">
+	/// The slot to exchange with.
+	/// </param>
+	public void ExchangeSlot(InventorySlot other)
+	{
+		/*
 		 * If one of the slots has a null stack,
 		 * or the items do not match,
 		 * then just swap the values of the stacks.
 		 * Otherwise, merge the other slot's stack with this slot's stack.
 		 */
-        if (Stack == null || other.Stack == null || Stack.CurItem != other.Stack.CurItem)
-        {
-            ItemStack swapped = other.Stack;
-            other.Stack = Stack;
-            Stack = swapped;
-        }
-        else
-        {
-            int remainder = other.MergeStack(Stack);
-            Stack.CurAmount = remainder;
+		if (_stack == null || other._stack == null || _stack.CurItem != other._stack.CurItem)
+		{
+			ItemStack swapped = other._stack;
+			other._stack = _stack;
+			_stack = swapped;
+		}
+		else
+		{
+			int remainder = other.MergeStack(_stack);
+			_stack.CurAmount = remainder;
 
-            if (Stack.CurAmount == 0)
-            {
-                Stack = null;
-            }
-        }
+			if (_stack.CurAmount == 0)
+			{
+				_stack = null;
+			}
+		}
 
-        // Trigger the slot updates.
-        UpdateUI();
-        other.UpdateUI();
-    }
+		// Trigger the slot updates.
+		UpdateUI();
+		other.UpdateUI();
+	}
 
-    /// <summary>
+	/// <summary>
 	/// Charges the slot's stack with the other specified stack.
 	/// The process of charging mainly involves removing a certain amount off the stack.
 	/// </summary>
@@ -141,14 +150,14 @@ public partial class InventorySlot
 		 * Perform the charge if the items of the stacks do match.
 		 * If they do not match, then do not perform the charge.
 		 */
-		if (Stack.CurItem != null && Stack.CurItem == toCharge.CurItem)
+		if (_stack.CurItem != null && _stack.CurItem == toCharge.CurItem)
 		{
-			int toRemove = Mathf.Clamp(toCharge.CurAmount, 0, Stack.CurAmount);
-			Stack.CurAmount -= toRemove;
+			int toRemove = Mathf.Clamp(toCharge.CurAmount, 0, _stack.CurAmount);
+			_stack.CurAmount -= toRemove;
 
-			if (Stack.CurAmount == 0)
+			if (_stack.CurAmount == 0)
 			{
-				Stack = null;
+				_stack = null;
 			}
 
 			UpdateUI();

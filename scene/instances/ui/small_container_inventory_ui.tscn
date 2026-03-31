@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ok1hbr03oafx"]
 
 [ext_resource type="Script" uid="uid://clvdxgxgpe6qm" path="res://scripts/inventory/ui/InventoryUI.cs" id="1_7pqlj"]
-[ext_resource type="PackedScene" uid="uid://t8b2fpva6x1i" path="res://scene/instances/inventory_slot_ui.tscn" id="2_dmura"]
+[ext_resource type="PackedScene" uid="uid://t8b2fpva6x1i" path="res://scene/instances/ui/inventory_slot_ui.tscn" id="2_dmura"]
 
 [node name="SmallContainerInventoryUI" type="Panel" unique_id=1728241136 node_paths=PackedStringArray("_slotContainer")]
 anchors_preset = 8
