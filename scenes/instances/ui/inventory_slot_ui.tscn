@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://t8b2fpva6x1i"]
+
+[ext_resource type="Script" uid="uid://nenig6mu1itd" path="res://scripts/inventory/ui/ItemSlotUI.cs" id="1_g63qe"]
+[ext_resource type="Texture2D" uid="uid://brsu86vfkghpm" path="res://textures/ui/slot_ui.png" id="1_pr7xm"]
+[ext_resource type="Resource" uid="uid://b3q81mpfq3edv" path="res://inventory_ui_status.tres" id="3_1o33y"]
+[ext_resource type="PackedScene" uid="uid://bt0um4udhmof6" path="res://scenes/instances/ui/inventory_slot_preview_ui.tscn" id="3_h238m"]
+[ext_resource type="PackedScene" uid="uid://bow87ltieju2x" path="res://scenes/instances/ui/hover_label.tscn" id="3_rkwol"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_h238m"]
+texture = ExtResource("1_pr7xm")
+
+[sub_resource type="LabelSettings" id="LabelSettings_t5ene"]
+font_size = 32
+
+[node name="InventorySlotUI" type="AspectRatioContainer" unique_id=554242975]
+offset_right = 128.0
+offset_bottom = 128.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SlotPanel" type="Panel" parent="." unique_id=140953446 node_paths=PackedStringArray("_slotRoot", "_intLabel", "_iconRect")]
+layout_mode = 2
+focus_behavior_recursive = 1
+theme_override_styles/panel = SubResource("StyleBoxTexture_h238m")
+script = ExtResource("1_g63qe")
+_status = ExtResource("3_1o33y")
+_hoverLabel = ExtResource("3_rkwol")
+_slotRoot = NodePath("..")
+_intLabel = NodePath("AmountLabel")
+_iconRect = NodePath("ItemIcon")
+_previewScene = ExtResource("3_h238m")
+
+[node name="ItemIcon" type="TextureRect" parent="SlotPanel" unique_id=1320095477]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_behavior_recursive = 1
+
+[node name="AmountLabel" type="Label" parent="SlotPanel" unique_id=1425174356]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+focus_behavior_recursive = 1
+label_settings = SubResource("LabelSettings_t5ene")
+horizontal_alignment = 2
+vertical_alignment = 2

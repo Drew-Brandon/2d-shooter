@@ -1,0 +1,344 @@
+[gd_scene format=3 uid="uid://bbg6mo0px3mhl"]
+
+[ext_resource type="Script" uid="uid://cq5jj2ina25yu" path="res://scripts/body_part_system/BodyAim.cs" id="1_mx2wa"]
+[ext_resource type="Texture2D" uid="uid://cm1jku8fdh2ri" path="res://textures/ui/RedOutline.png" id="2_0rs5q"]
+[ext_resource type="Script" uid="uid://bil8pqo2wpsk8" path="res://scripts/body_part_system/BodyPartButton.cs" id="3_k2sgn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mfwi2"]
+texture = ExtResource("2_0rs5q")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="Animation" id="Animation_0rb7l"]
+length = 1.2
+loop_mode = 1
+
+[sub_resource type="Animation" id="Animation_r1qlc"]
+resource_name = "move_motion"
+length = 1.2
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BodyCenter/BodyPivot/LeftLegPivot/LeftLeg:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.05235987755982989, 0.0, -0.05235987755982989]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BodyCenter/BodyPivot/RightLegPivot/RightLeg:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.29999998, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.05235987755982989, 0.0, -0.05235987755982989]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BodyCenter/BodyPivot/LeftLegPivot/LeftLeg:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-20, 0), Vector2(-20, -10), Vector2(-20, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BodyCenter/BodyPivot/RightLegPivot/RightLeg:position")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(-15, 0), Vector2(-20, 0), Vector2(-20, -10)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BodyCenter/BodyPivot/LeftArm:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.17453292519943295, 0.0]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BodyCenter/BodyPivot/RightArm:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, -0.17453292519943295]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BodyCenter/BodyPivot/HeadPivot/Head:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.17453292519943295, -0.17453292519943295]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BodyCenter/BodyPivot/HeadPivot/Head:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-25, -60), Vector2(-25, -55), Vector2(-25, -60), Vector2(-25, -55)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("BodyCenter/BodyPivot/Torso:rotation")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.03490658503988659, 0.0, 0.03490658503988659]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("BodyCenter/BodyPivot:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 300), Vector2(-20, 300), Vector2(20, 300)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("BodyCenter/BodyPivot:rotation")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.08726646259971647, 0.08726646259971647]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_esd4j"]
+_data = {
+&"RESET": SubResource("Animation_0rb7l"),
+&"move_motion": SubResource("Animation_r1qlc")
+}
+
+[node name="AimUI" type="Panel" unique_id=612013035 node_paths=PackedStringArray("_bodyParent", "_bodyPartButtons", "_animPlyr")]
+light_mask = 0
+offset_right = 400.0
+offset_bottom = 600.0
+script = ExtResource("1_mx2wa")
+_bodyParent = NodePath("BodyCenter")
+_bodyPartButtons = [NodePath("BodyCenter/BodyPivot/Torso"), NodePath("BodyCenter/BodyPivot/RightLegPivot/RightLeg"), NodePath("BodyCenter/BodyPivot/LeftLegPivot/LeftLeg"), NodePath("BodyCenter/BodyPivot/HeadPivot/Head"), NodePath("BodyCenter/BodyPivot/LeftArm"), NodePath("BodyCenter/BodyPivot/RightArm")]
+_minScale = 0.25
+_maxScale = 1.2
+_minScaleDist = 256.0
+_maxScaleDist = 32.0
+_animPlyr = NodePath("AnimationPlayer")
+
+[node name="BodyCenter" type="Control" parent="." unique_id=209703629]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BodyPivot" type="Control" parent="BodyCenter" unique_id=805038641]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_top = 300.0
+offset_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Torso" type="Button" parent="BodyCenter/BodyPivot" unique_id=171065433]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -60.0
+offset_top = -400.0
+offset_right = 60.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+theme_override_styles/normal = SubResource("StyleBoxTexture_mfwi2")
+action_mode = 0
+script = ExtResource("3_k2sgn")
+_bodyPart = 3
+
+[node name="RightLegPivot" type="Control" parent="BodyCenter/BodyPivot" unique_id=869881350]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 30.0
+offset_top = -200.0
+offset_right = 30.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightLeg" type="Button" parent="BodyCenter/BodyPivot/RightLegPivot" unique_id=144249589]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -15.0
+offset_right = 25.0
+offset_bottom = 150.001
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_styles/normal = SubResource("StyleBoxTexture_mfwi2")
+script = ExtResource("3_k2sgn")
+_bodyPart = 5
+
+[node name="LeftLegPivot" type="Control" parent="BodyCenter/BodyPivot" unique_id=1134814851]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -200.0
+offset_right = -30.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftLeg" type="Button" parent="BodyCenter/BodyPivot/LeftLegPivot" unique_id=111540920]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 150.0
+grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+theme_override_styles/normal = SubResource("StyleBoxTexture_mfwi2")
+script = ExtResource("3_k2sgn")
+_bodyPart = 4
+
+[node name="HeadPivot" type="Control" parent="BodyCenter/BodyPivot" unique_id=603694544]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -400.0
+offset_bottom = -400.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Head" type="Button" parent="BodyCenter/BodyPivot/HeadPivot" unique_id=913167472]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -60.0
+offset_right = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 1)
+theme_override_styles/normal = SubResource("StyleBoxTexture_mfwi2")
+script = ExtResource("3_k2sgn")
+
+[node name="LeftArm" type="Button" parent="BodyCenter/BodyPivot" unique_id=843137295]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -400.0
+offset_right = -60.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(1, 0)
+theme_override_styles/normal = SubResource("StyleBoxTexture_mfwi2")
+script = ExtResource("3_k2sgn")
+_bodyPart = 1
+
+[node name="RightArm" type="Button" parent="BodyCenter/BodyPivot" unique_id=1186781781]
+light_mask = 0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 60.0
+offset_top = -400.0
+offset_right = 90.0
+offset_bottom = -280.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_mfwi2")
+script = ExtResource("3_k2sgn")
+_bodyPart = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1688978348]
+libraries/ = SubResource("AnimationLibrary_esd4j")
+autoplay = &"move_motion"

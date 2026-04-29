@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://jvkkw88j3rqa"]
+
+[ext_resource type="PackedScene" uid="uid://crkr0dklf8irv" path="res://scenes/instances/ai/cyber_agent.tscn" id="1_jh0ur"]
+[ext_resource type="PackedScene" uid="uid://dwakgk2yftaqi" path="res://scenes/instances/behavior_trees/bt_patrol.tscn" id="2_f7ydc"]
+
+[node name="CyberAgentPatrol" unique_id=549273246 node_paths=PackedStringArray("_blackboard", "_btPlayer") instance=ExtResource("1_jh0ur")]
+_blackboard = NodePath("BTPlayer/AIBlackboard")
+_btPlayer = NodePath("BTPlayer")
+
+[node name="BTPlayer" parent="." index="7" unique_id=1369535274 node_paths=PackedStringArray("_ai") instance=ExtResource("2_f7ydc")]
+_ai = NodePath("..")
+
+[connection signal="OnLost" from="Sight" to="BTPlayer/AIBlackboard" method="SetState" unbinds=1 binds= [&"searching"]]
+[connection signal="OnSpotted" from="Sight" to="BTPlayer/AIBlackboard" method="SetState" unbinds=1 binds= [&"chasing"]]
+[connection signal="OnSpotted" from="Sight" to="BTPlayer/AIBlackboard" method="SetNodeAlt" binds= [&"targ_node"]]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/ChaseSequence/BTSignalRun" to="." method="Run"]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/SearchSequence/BTSignalRun" to="." method="Run"]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/SearchSequence/BTSignalWalk" to="." method="Walk"]
+
+[editable path="BTPlayer"]

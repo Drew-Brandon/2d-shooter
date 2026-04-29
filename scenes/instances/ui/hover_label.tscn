@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bow87ltieju2x"]
+
+[ext_resource type="Script" uid="uid://b6uorxxj0yq8b" path="res://scripts/misc/HoverDisplay.cs" id="1_0mwot"]
+
+[node name="HoverContainer" type="PanelContainer" unique_id=304016928 node_paths=PackedStringArray("_label")]
+offset_right = 40.0
+offset_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_filter = 2
+script = ExtResource("1_0mwot")
+_label = NodePath("HoverLabel")
+
+[node name="HoverLabel" type="Label" parent="." unique_id=458235464]
+layout_mode = 2
+size_flags_vertical = 1

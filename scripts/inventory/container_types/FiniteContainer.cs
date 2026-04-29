@@ -5,9 +5,10 @@ using Godot;
 /// </summary>
 public partial class FiniteContainer : Node2D, IInteractable
 {
-	private bool _isOpen = false;
-
 	private InventoryUI _curUI;
+
+	[Export]
+	private float _range = 256f;
 
 	[Export]
 	private FiniteInventory _inventory = null;
@@ -17,24 +18,26 @@ public partial class FiniteContainer : Node2D, IInteractable
 
 	public bool Interact(PlayerBody2D plyr)
 	{
-		_isOpen = !_isOpen;
-
-		if (_isOpen)
+		if (plyr.GlobalPosition.DistanceTo(GlobalPosition) > _range)
 		{
-			_curUI = plyr.AddUI<InventoryUI>(_uiScene);
-			_inventory.SetUI(_curUI);
-		}
-		else
-		{
-			_inventory.ClearUI();
-			_curUI.QueueFree();
+			return false;
 		}
 
+		plyr.ToggleInventory(true);
+		_curUI = plyr.AddUI<InventoryUI>(_uiScene);
+		_inventory.SetUI(_curUI);
 		return true;
 	}
 
 	public void StopInteract(PlayerBody2D plyr)
 	{
+		plyr.ToggleInventory(false);
+		_inventory.ClearUI();
+		_curUI.QueueFree();
+	}
 
+	public bool InteractUpdate(float delta, PlayerBody2D plyr)
+	{
+		return !plyr.InventoryOpen || plyr.GlobalPosition.DistanceTo(GlobalPosition) > _range;
 	}
 }

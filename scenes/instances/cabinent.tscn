@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://drr4l888dqe75"]
+
+[ext_resource type="Script" uid="uid://dlt3o5bhg017f" path="res://scripts/inventory/container_types/FiniteContainer.cs" id="1_ob8lu"]
+[ext_resource type="PackedScene" uid="uid://ok1hbr03oafx" path="res://scenes/instances/ui/small_container_inventory_ui.tscn" id="2_kdvjf"]
+[ext_resource type="Texture2D" uid="uid://coou2psegour1" path="res://textures/props/cabinent.png" id="3_c2g1d"]
+[ext_resource type="Script" uid="uid://es7opjafgclv" path="res://scripts/inventory/inventory_types/FiniteInventory.cs" id="4_3nkad"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6l2dr"]
+size = Vector2(64, 26)
+
+[node name="Cabinent" type="StaticBody2D" unique_id=969497254 node_paths=PackedStringArray("_inventory")]
+rotation = 3.1415925
+collision_layer = 8
+collision_mask = 30
+script = ExtResource("1_ob8lu")
+_range = 64.0
+_inventory = NodePath("CabinentInventory")
+_uiScene = ExtResource("2_kdvjf")
+
+[node name="CabinentSprite" type="Sprite2D" parent="." unique_id=787782877]
+texture = ExtResource("3_c2g1d")
+
+[node name="CabinentCollision" type="CollisionShape2D" parent="." unique_id=161134224]
+position = Vector2(0, -3)
+shape = SubResource("RectangleShape2D_6l2dr")
+
+[node name="CabinentInventory" type="Node" parent="." unique_id=1461295699]
+script = ExtResource("4_3nkad")
+_size = 4
+_startInstances = Array[Object]([])

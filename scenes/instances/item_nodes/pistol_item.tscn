@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://pq0cqcqdw8dn"]
+
+[ext_resource type="Script" uid="uid://bd6hrcbj2j00e" path="res://scripts/inventory/item_nodes/GunNode.cs" id="1_dk0u5"]
+[ext_resource type="PackedScene" uid="uid://d3wkwqjnmclxa" path="res://scenes/instances/vfx/bullet_tracer.tscn" id="2_jhvxk"]
+[ext_resource type="Script" uid="uid://csb1nmg7wlxrh" path="res://scripts/cast_info/PiercingRayCastInfo.cs" id="2_xoqq5"]
+[ext_resource type="AudioStream" uid="uid://b08rweq08nlx6" path="res://sfx/pistol_fire.wav" id="3_ev1cm"]
+[ext_resource type="AudioStream" uid="uid://jqx7o10de7x4" path="res://sfx/pistol_reload.wav" id="4_v5rtd"]
+[ext_resource type="Texture2D" uid="uid://5vtbxfbx5xml" path="res://textures/ui/pistol.png" id="5_xoqq5"]
+[ext_resource type="Script" uid="uid://6cydex2h6gdd" path="res://scripts/plus_variants/LabelPlus.cs" id="6_jhvxk"]
+[ext_resource type="AudioStream" uid="uid://c3o6hohdrpqnf" path="res://sfx/holster_weapon.wav" id="6_oia03"]
+
+[sub_resource type="Resource" id="Resource_xoqq5"]
+script = ExtResource("2_xoqq5")
+_maxPierceCount = 2
+_pierceMask = 4
+_collisionMask = 13
+metadata/_custom_type_script = "uid://csb1nmg7wlxrh"
+
+[sub_resource type="LabelSettings" id="LabelSettings_fc5v8"]
+font_size = 24
+
+[node name="Pistol" type="Node" unique_id=304139314]
+script = ExtResource("1_dk0u5")
+_bulletSpread = 1.0
+_bulletTracerScene = ExtResource("2_jhvxk")
+_rayCastInfo = SubResource("Resource_xoqq5")
+
+[node name="PistolFirePlayer" type="AudioStreamPlayer" parent="." unique_id=1517459179]
+stream = ExtResource("3_ev1cm")
+
+[node name="PistolReloadPlayer" type="AudioStreamPlayer" parent="." unique_id=1933412837]
+stream = ExtResource("4_v5rtd")
+
+[node name="HolsterPlayer" type="AudioStreamPlayer" parent="." unique_id=1952215857]
+stream = ExtResource("6_oia03")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1587430284]
+
+[node name="PistolDisplay" type="Control" parent="CanvasLayer" unique_id=1542975520]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="PistolIcon" type="TextureRect" parent="CanvasLayer/PistolDisplay" unique_id=1856807860]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 128.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+texture = ExtResource("5_xoqq5")
+
+[node name="ClipLabel" type="Label" parent="CanvasLayer/PistolDisplay" unique_id=1301338823]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -34.0
+offset_right = 168.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+label_settings = SubResource("LabelSettings_fc5v8")
+script = ExtResource("6_jhvxk")
+metadata/_custom_type_script = "uid://6cydex2h6gdd"
+
+[connection signal="OnEquipped" from="." to="CanvasLayer/PistolDisplay/ClipLabel" method="SetTextWithInt"]
+[connection signal="OnFinishReload" from="." to="CanvasLayer/PistolDisplay/ClipLabel" method="SetTextWithInt"]
+[connection signal="OnFire" from="." to="CanvasLayer/PistolDisplay/ClipLabel" method="SetTextWithInt"]
+[connection signal="OnFire" from="." to="PistolFirePlayer" method="play" unbinds=1]
+[connection signal="OnHaltReload" from="." to="PistolReloadPlayer" method="stop"]
+[connection signal="OnStartReload" from="." to="PistolReloadPlayer" method="play"]

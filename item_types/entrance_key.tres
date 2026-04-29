@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://bxmmbmh7u81cm"]
+
+[ext_resource type="Texture2D" uid="uid://cag05j3c1yhut" path="res://textures/ui/key_item.png" id="1_fj8xs"]
+[ext_resource type="Script" uid="uid://bm3cpk505mdpo" path="res://scripts/inventory/item_types/BaseItem.cs" id="2_dugc4"]
+
+[resource]
+script = ExtResource("2_dugc4")
+_displayName = &"Entrance Key"
+_icon = ExtResource("1_fj8xs")
+metadata/_custom_type_script = "uid://bm3cpk505mdpo"

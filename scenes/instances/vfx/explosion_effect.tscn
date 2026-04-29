@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://lty3l0gk86mn"]
+
+[ext_resource type="Texture2D" uid="uid://dbsirrnc0dvdg" path="res://textures/explosion/explosion1.png" id="1_r7csu"]
+[ext_resource type="Texture2D" uid="uid://dnfw6q1mrbpgj" path="res://textures/explosion/explosion2.png" id="2_je2a7"]
+[ext_resource type="Texture2D" uid="uid://rk4f4uo3pvsd" path="res://textures/explosion/explosion3.png" id="3_tgnnv"]
+[ext_resource type="Texture2D" uid="uid://v3u1y3e80i4c" path="res://textures/explosion/explosion4.png" id="4_u5fob"]
+[ext_resource type="Texture2D" uid="uid://qd2u3u6e24xl" path="res://textures/explosion/explosion5.png" id="5_4ndj5"]
+[ext_resource type="Script" uid="uid://pn0wkb2g11xq" path="res://scripts/misc/FadeOut.cs" id="6_xy0b6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vnpm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_r7csu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_je2a7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_tgnnv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u5fob")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_4ndj5")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="ExplosionEffect" type="AnimatedSprite2D" unique_id=1575958904]
+sprite_frames = SubResource("SpriteFrames_7vnpm")
+autoplay = "default"
+frame = 4
+frame_progress = 1.0
+script = ExtResource("6_xy0b6")
+_fadeTime = 0.2
+
+[connection signal="animation_finished" from="." to="." method="SetFade" binds= [true]]

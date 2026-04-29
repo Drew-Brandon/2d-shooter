@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="GunItem" format=3 uid="uid://bd5pgvcxemj30"]
+
+[ext_resource type="Resource" uid="uid://bx6d2nqxj5aph" path="res://item_types/shotgun_ammo.tres" id="1_85ejb"]
+[ext_resource type="Script" uid="uid://e35upiyjurg4" path="res://scripts/inventory/item_types/GunItem.cs" id="1_yhe7p"]
+[ext_resource type="Texture2D" uid="uid://bibcfmof3d0bh" path="res://textures/ui/pro_shotgun.png" id="2_bdve6"]
+[ext_resource type="PackedScene" uid="uid://k1am72p2bo83" path="res://scenes/instances/item_nodes/shotgun_item.tscn" id="3_bdve6"]
+
+[resource]
+script = ExtResource("1_yhe7p")
+_maxClipAmmo = 4
+_ammoType = ExtResource("1_85ejb")
+_displayName = &"Shotgun"
+_icon = ExtResource("2_bdve6")
+_itemScene = ExtResource("3_bdve6")
+metadata/_custom_type_script = "uid://e35upiyjurg4"

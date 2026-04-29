@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://k1am72p2bo83"]
+
+[ext_resource type="Script" uid="uid://blmnarnabxhaj" path="res://scripts/inventory/item_nodes/ShotgunNode.cs" id="1_00ibk"]
+[ext_resource type="PackedScene" uid="uid://d3wkwqjnmclxa" path="res://scenes/instances/vfx/bullet_tracer.tscn" id="2_yjmr2"]
+[ext_resource type="Script" uid="uid://csb1nmg7wlxrh" path="res://scripts/cast_info/PiercingRayCastInfo.cs" id="3_i5wy8"]
+[ext_resource type="AudioStream" uid="uid://bxd3bqojqa4ps" path="res://sfx/shotgun_fire.wav" id="4_00ibk"]
+[ext_resource type="AudioStream" uid="uid://b8ri6v0kg3wid" path="res://sfx/shotgun_shell_insert.wav" id="5_i5wy8"]
+[ext_resource type="Texture2D" uid="uid://bibcfmof3d0bh" path="res://textures/ui/pro_shotgun.png" id="6_00ibk"]
+[ext_resource type="Script" uid="uid://6cydex2h6gdd" path="res://scripts/plus_variants/LabelPlus.cs" id="7_k84f1"]
+[ext_resource type="AudioStream" uid="uid://65lacnkg34c2" path="res://sfx/shotgun_pump.wav" id="8_yjmr2"]
+[ext_resource type="AudioStream" uid="uid://c3o6hohdrpqnf" path="res://sfx/holster_weapon.wav" id="9_i5wy8"]
+
+[sub_resource type="Resource" id="Resource_0j6ob"]
+script = ExtResource("3_i5wy8")
+_maxPierceCount = 3
+_pierceMask = 4
+_collisionMask = 13
+metadata/_custom_type_script = "uid://csb1nmg7wlxrh"
+
+[sub_resource type="LabelSettings" id="LabelSettings_mby2p"]
+font_size = 24
+
+[node name="Shotgun" type="Node" unique_id=304139314]
+script = ExtResource("1_00ibk")
+_rayCount = 6
+ReloadTime = 500
+_fireRate = 1000
+_bulletSpread = 8.0
+_bulletTracerScene = ExtResource("2_yjmr2")
+_rayCastInfo = SubResource("Resource_0j6ob")
+
+[node name="FirePlayer" type="AudioStreamPlayer" parent="." unique_id=1517459179]
+stream = ExtResource("4_00ibk")
+
+[node name="InsertPlayer" type="AudioStreamPlayer" parent="." unique_id=1933412837]
+stream = ExtResource("5_i5wy8")
+
+[node name="PumpPlayer" type="AudioStreamPlayer" parent="." unique_id=397638608]
+stream = ExtResource("8_yjmr2")
+
+[node name="HolsterPlayer" type="AudioStreamPlayer" parent="." unique_id=1002892657]
+stream = ExtResource("9_i5wy8")
+autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1587430284]
+
+[node name="ShotgunDisplay" type="Control" parent="CanvasLayer" unique_id=1940113163]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+
+[node name="ShotgunIcon" type="TextureRect" parent="CanvasLayer/ShotgunDisplay" unique_id=2084290391]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -128.0
+offset_right = 128.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+texture = ExtResource("6_00ibk")
+
+[node name="ShellLabel" type="Label" parent="CanvasLayer/ShotgunDisplay" unique_id=1506628135]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 128.0
+offset_top = -34.0
+offset_right = 168.0
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0, 1)
+label_settings = SubResource("LabelSettings_mby2p")
+script = ExtResource("7_k84f1")
+metadata/_custom_type_script = "uid://6cydex2h6gdd"
+
+[connection signal="OnEquipped" from="." to="CanvasLayer/ShotgunDisplay/ShellLabel" method="SetTextWithInt"]
+[connection signal="OnFinishReload" from="." to="PumpPlayer" method="play" unbinds=1]
+[connection signal="OnFire" from="." to="CanvasLayer/ShotgunDisplay/ShellLabel" method="SetTextWithInt"]
+[connection signal="OnFire" from="." to="FirePlayer" method="play" unbinds=1]
+[connection signal="OnShellInsert" from="." to="CanvasLayer/ShotgunDisplay/ShellLabel" method="SetTextWithInt"]
+[connection signal="OnShellInsert" from="." to="InsertPlayer" method="play" unbinds=1]

@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bo6t2orof68"]
+
+[ext_resource type="Script" uid="uid://dcfhisfv0yrbs" path="res://scripts/puppet_bodies/ai/CyberBody2D.cs" id="1_2n0ux"]
+[ext_resource type="PackedScene" uid="uid://soqf47oxunp7" path="res://scenes/instances/vfx/cyber_headless_corpse.tscn" id="2_cabix"]
+[ext_resource type="PackedScene" uid="uid://diogr2g65dtya" path="res://scenes/instances/vfx/cyber_corpse.tscn" id="3_c5wyl"]
+[ext_resource type="Script" uid="uid://blhr4idq26v1e" path="res://scripts/cast_info/RayCastInfo.cs" id="4_jiulf"]
+[ext_resource type="Script" uid="uid://b1tbr74dvdy31" path="res://scripts/cast_info/ShapeCastInfo.cs" id="5_8fhc3"]
+[ext_resource type="PackedScene" uid="uid://cqomh73pmq8ef" path="res://scenes/instances/vfx/blood_splat.tscn" id="6_72xev"]
+[ext_resource type="Material" uid="uid://b0cqyj6e0iuw3" path="res://light_occlude_material.tres" id="7_rwb6s"]
+[ext_resource type="Texture2D" uid="uid://ckk0p2mfvdxhd" path="res://textures/humanoids/cyber/cyber_agent.png" id="8_is8t0"]
+[ext_resource type="Script" uid="uid://vn4b4rapp73x" path="res://scripts/puppet_bodies/ai/Sight.cs" id="9_wslab"]
+[ext_resource type="AudioStream" uid="uid://yn3318uy7npx" path="res://sfx/flesh_impact.wav" id="10_3lb4o"]
+[ext_resource type="AudioStream" uid="uid://d3brchmbspnhk" path="res://sfx/footsteps_wood.wav" id="11_apprw"]
+[ext_resource type="AudioStream" uid="uid://j18a3lfr178f" path="res://sfx/cyber_hello.wav" id="12_ny3gc"]
+[ext_resource type="Script" uid="uid://ptc5u5un0es" path="res://scripts/logic/Checklist.cs" id="13_pejd0"]
+
+[sub_resource type="Resource" id="Resource_5ep6e"]
+script = ExtResource("4_jiulf")
+_collisionMask = 11
+metadata/_custom_type_script = "uid://blhr4idq26v1e"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5ep6e"]
+radius = 16.0
+
+[sub_resource type="Resource" id="Resource_ianik"]
+script = ExtResource("5_8fhc3")
+_shape = SubResource("CircleShape2D_5ep6e")
+_collisionMask = 2
+metadata/_custom_type_script = "uid://b1tbr74dvdy31"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sb12i"]
+radius = 24.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18v4p"]
+radius = 256.0
+
+[sub_resource type="Resource" id="Resource_we63a"]
+script = ExtResource("5_8fhc3")
+_shape = SubResource("CircleShape2D_18v4p")
+_collisionMask = 2
+metadata/_custom_type_script = "uid://b1tbr74dvdy31"
+
+[sub_resource type="Resource" id="Resource_n8puf"]
+script = ExtResource("4_jiulf")
+_collisionMask = 3
+metadata/_custom_type_script = "uid://blhr4idq26v1e"
+
+[node name="CyberTitanAgent" type="CharacterBody2D" unique_id=549273246 node_paths=PackedStringArray("_navAgent", "_footstepPlayer")]
+z_index = 1
+collision_layer = 4
+collision_mask = 11
+motion_mode = 1
+platform_on_leave = 2
+script = ExtResource("1_2n0ux")
+_headlessCorpse = ExtResource("2_cabix")
+_genericCorpse = ExtResource("3_c5wyl")
+_bodyPartsDmgMult = PackedFloat32Array(3, 1.5, 1.5, 1, 1.2, 1.2)
+_navAgent = NodePath("AINavigation")
+_attackLOSCast = SubResource("Resource_5ep6e")
+_attackRangeCast = SubResource("Resource_ianik")
+_maxHealth = 80.0
+_bloodSplat = ExtResource("6_72xev")
+_walkSpeed = 40.0
+_runSpeed = 60.0
+_velWeight = 16.0
+_pushPower = 1.0
+_footstepPlayer = NodePath("FootstepPlayer")
+
+[node name="AISprite" type="Sprite2D" parent="." unique_id=315304782]
+material = ExtResource("7_rwb6s")
+scale = Vector2(2, 2)
+texture = ExtResource("8_is8t0")
+
+[node name="AICollider" type="CollisionShape2D" parent="." unique_id=1596105348]
+shape = SubResource("CircleShape2D_sb12i")
+
+[node name="AINavigation" type="NavigationAgent2D" parent="." unique_id=2010922481]
+path_desired_distance = 4.0
+target_desired_distance = 8.0
+navigation_layers = 2
+debug_enabled = true
+debug_path_custom_color = Color(1, 0, 0, 1)
+
+[node name="Sight" type="Node2D" parent="." unique_id=1399605069 node_paths=PackedStringArray("_ignoreNodeList")]
+script = ExtResource("9_wslab")
+_rangeCast = SubResource("Resource_we63a")
+_sightCast = SubResource("Resource_n8puf")
+_ignoreNodeList = [NodePath("..")]
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="." unique_id=2049239965]
+radius = 14.0
+affect_navigation_mesh = true
+
+[node name="DamagePlayer" type="AudioStreamPlayer2D" parent="." unique_id=305875518]
+stream = ExtResource("10_3lb4o")
+volume_db = 24.0
+
+[node name="FootstepPlayer" type="AudioStreamPlayer2D" parent="." unique_id=749739552]
+stream = ExtResource("11_apprw")
+volume_db = 4.0
+max_distance = 1024.0
+attenuation = 4.0
+
+[node name="HelloPlayer" type="AudioStreamPlayer2D" parent="." unique_id=835692700]
+stream = ExtResource("12_ny3gc")
+pitch_scale = 0.7
+
+[node name="HelloChecklist" type="Node" parent="." unique_id=853943248]
+script = ExtResource("13_pejd0")
+_list = Dictionary[StringName, bool]({
+&"spotted": false,
+&"time_up": true
+})
+metadata/_custom_type_script = "uid://ptc5u5un0es"
+
+[node name="HelloCooldown" type="Timer" parent="." unique_id=1355171580]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="OnDamaged" from="." to="DamagePlayer" method="play" unbinds=1]
+[connection signal="OnLost" from="Sight" to="HelloChecklist" method="Unmark" unbinds=1 binds= [&"spotted"]]
+[connection signal="OnSpotted" from="Sight" to="HelloChecklist" method="Mark" unbinds=1 binds= [&"spotted"]]
+[connection signal="OnCompleted" from="HelloChecklist" to="HelloPlayer" method="play"]
+[connection signal="OnCompleted" from="HelloChecklist" to="HelloCooldown" method="start"]
+[connection signal="OnCompleted" from="HelloChecklist" to="HelloChecklist" method="Unmark" binds= [&"time_up"]]
+[connection signal="timeout" from="HelloCooldown" to="HelloChecklist" method="Mark" binds= [&"time_up"]]

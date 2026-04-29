@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://dwqqe83q0qyji"]
+
+[ext_resource type="Texture2D" uid="uid://cag05j3c1yhut" path="res://textures/ui/key_item.png" id="1_iktkp"]
+[ext_resource type="Script" uid="uid://bm3cpk505mdpo" path="res://scripts/inventory/item_types/BaseItem.cs" id="1_nn23d"]
+
+[resource]
+script = ExtResource("1_nn23d")
+_displayName = &"Outdoor Key"
+_icon = ExtResource("1_iktkp")
+metadata/_custom_type_script = "uid://bm3cpk505mdpo"

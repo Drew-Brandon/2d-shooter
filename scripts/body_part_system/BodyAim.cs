@@ -44,12 +44,17 @@ public partial class BodyAim : Control
 	/// <param name="bodyPart">
 	/// The body part that was hit.
 	/// </param>
-	private void OnHit(int bodyPart)
+	private void OnHit(BodyPart bodyPart)
 	{
-		_plyr.Attack(_target.GlobalPosition, (BodyPart)bodyPart);
+		if (_target == null)
+		{
+			return;
+		}
+
+		_plyr.Attack(_target.GlobalPosition, bodyPart);
 
 		// Stop aiming when the target dies.
-		if (_target.GetHealth() <= 0f)
+		if (!_target.IsAlive)
 		{
 			_plyr.StopAim();
 		}
@@ -61,12 +66,12 @@ public partial class BodyAim : Control
 		{
 			if (_bodyPartButtons[i].ButtonPressed)
 			{
-				OnHit((int)_bodyPartButtons[i].BodyPart);
+				OnHit(_bodyPartButtons[i].BodyPart);
 				return;
 			}
 		}
 
-		OnHit(-1);
+		OnHit(BodyPart.None);
 	}
 
 	/// <summary>

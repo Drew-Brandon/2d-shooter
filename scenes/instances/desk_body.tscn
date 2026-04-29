@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://r0ir88q068pd"]
+
+[ext_resource type="Script" uid="uid://s3benhlx1nbw" path="res://scripts/plus_variants/RigidBody2DPlus.cs" id="1_q45r0"]
+[ext_resource type="Texture2D" uid="uid://bmikf3boboogg" path="res://textures/props/desk.png" id="1_vak1l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_q45r0"]
+size = Vector2(64, 32)
+
+[node name="DeskBody" type="RigidBody2D" unique_id=1136640760 groups=["save_rigid_bodies"]]
+collision_layer = 16
+collision_mask = 31
+mass = 60.0
+gravity_scale = 0.0
+freeze_mode = 1
+linear_damp = 10.0
+angular_damp = 10.0
+script = ExtResource("1_q45r0")
+
+[node name="DeskSprite" type="Sprite2D" parent="." unique_id=1539675113]
+texture = ExtResource("1_vak1l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1391556080]
+shape = SubResource("RectangleShape2D_q45r0")

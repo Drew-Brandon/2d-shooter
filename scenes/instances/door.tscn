@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://jukljfy78dbr"]
+
+[ext_resource type="Script" uid="uid://dk21f3ov5nxl6" path="res://scripts/misc/Door.cs" id="1_bpl6n"]
+[ext_resource type="AudioStream" uid="uid://4pt6qi3bm7xc" path="res://sfx/door_creak.wav" id="2_20i7s"]
+[ext_resource type="Texture2D" uid="uid://b8rr21ipqm100" path="res://textures/props/door.png" id="2_bpl6n"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vi6ux"]
+radius = 2.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pf3f4"]
+size = Vector2(32, 4)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_8bwis"]
+polygon = PackedVector2Array(-16, -2, 16, -2, 16, 2, -16, 2)
+
+[node name="DoorBody" type="StaticBody2D" unique_id=968855381]
+collision_layer = 8
+collision_mask = 31
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=814282005]
+position = Vector2(2, 0)
+shape = SubResource("CircleShape2D_vi6ux")
+
+[node name="DoorPin" type="PinJoint2D" parent="." unique_id=1017137901]
+position = Vector2(2, 0)
+node_a = NodePath("..")
+node_b = NodePath("../DoorRigidBody")
+angular_limit_enabled = true
+angular_limit_lower = -1.9198622
+angular_limit_upper = 1.9198622
+
+[node name="DoorRigidBody" type="RigidBody2D" parent="." unique_id=298383400 node_paths=PackedStringArray("_creakPlayer") groups=["save_doors"]]
+position = Vector2(16, 0)
+collision_layer = 8
+collision_mask = 30
+mass = 45.0
+gravity_scale = 0.0
+angular_damp = 3.0
+script = ExtResource("1_bpl6n")
+_creakCooldown = 0.3
+_creakScale = 0.3
+_creakStart = 3.5
+_maxCreakVol = 1.5
+_creakPlayer = NodePath("../DoorCreak")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorRigidBody" unique_id=18343534]
+shape = SubResource("RectangleShape2D_pf3f4")
+
+[node name="Sprite2D" type="Sprite2D" parent="DoorRigidBody" unique_id=562376498]
+texture = ExtResource("2_bpl6n")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="DoorRigidBody" unique_id=720870430]
+occluder = SubResource("OccluderPolygon2D_8bwis")
+
+[node name="DoorCreak" type="AudioStreamPlayer2D" parent="." unique_id=825960649]
+stream = ExtResource("2_20i7s")
+max_distance = 1024.0
+attenuation = 3.0

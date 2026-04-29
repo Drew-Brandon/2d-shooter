@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://bnnny82wohpge"]
+
+[ext_resource type="Script" uid="uid://bm3cpk505mdpo" path="res://scripts/inventory/item_types/BaseItem.cs" id="1_43a4k"]
+[ext_resource type="Texture2D" uid="uid://cag05j3c1yhut" path="res://textures/ui/key_item.png" id="1_emq3n"]
+
+[resource]
+script = ExtResource("1_43a4k")
+_displayName = &"Secrurity Card Lv2"
+_icon = ExtResource("1_emq3n")
+metadata/_custom_type_script = "uid://bm3cpk505mdpo"

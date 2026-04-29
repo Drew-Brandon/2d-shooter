@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bt0um4udhmof6"]
+
+[node name="ItemIcon" type="TextureRect" unique_id=1320095477]
+z_index = 1
+offset_right = 128.0
+offset_bottom = 128.0
+focus_behavior_recursive = 1

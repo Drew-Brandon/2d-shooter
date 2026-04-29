@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://diogr2g65dtya"]
+
+[ext_resource type="Texture2D" uid="uid://ckk0p2mfvdxhd" path="res://textures/humanoids/cyber/cyber_agent.png" id="1_id6on"]
+[ext_resource type="Material" uid="uid://b0cqyj6e0iuw3" path="res://light_occlude_material.tres" id="1_mv47p"]
+[ext_resource type="Texture2D" uid="uid://b1o2mq3hm0v8o" path="res://textures/humanoids/cyber/cyber_corpse/standard/cyber_fall1.png" id="2_e4llq"]
+[ext_resource type="Texture2D" uid="uid://dyl4hwbk8tvg1" path="res://textures/humanoids/cyber/cyber_corpse/standard/cyber_fall2.png" id="3_mv47p"]
+[ext_resource type="Texture2D" uid="uid://dt8brpwsft6j" path="res://textures/humanoids/cyber/cyber_corpse/standard/cyber_corpse.png" id="4_f863q"]
+[ext_resource type="AudioStream" uid="uid://yn3318uy7npx" path="res://sfx/flesh_impact.wav" id="5_ahtw0"]
+[ext_resource type="Script" uid="uid://pn0wkb2g11xq" path="res://scripts/misc/FadeOut.cs" id="5_e4llq"]
+[ext_resource type="AudioStream" uid="uid://grcl8rd58eux" path="res://sfx/loud_thud.wav" id="8_bu08a"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wsrwb"]
+animations = [{
+"frames": [{
+"duration": 10.0,
+"texture": ExtResource("1_id6on")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_e4llq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mv47p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_f863q")
+}],
+"loop": false,
+"name": &"cyber_corpse_fall",
+"speed": 10.0
+}]
+
+[node name="CyberCorpseAnimation" type="AnimatedSprite2D" unique_id=1905213039]
+material = ExtResource("1_mv47p")
+sprite_frames = SubResource("SpriteFrames_wsrwb")
+animation = &"cyber_corpse_fall"
+autoplay = "cyber_corpse_fall"
+script = ExtResource("5_e4llq")
+_fadeTime = 32.0
+
+[node name="DamagePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1587562857]
+stream = ExtResource("5_ahtw0")
+volume_db = 24.0
+autoplay = true
+
+[node name="FadeOutTimer" type="Timer" parent="." unique_id=484122911]
+wait_time = 128.0
+one_shot = true
+autostart = true
+
+[node name="ThudPlayer" type="AudioStreamPlayer2D" parent="." unique_id=754375216]
+stream = ExtResource("8_bu08a")
+volume_db = 4.0
+
+[node name="ThudTimer" type="Timer" parent="." unique_id=1890426000]
+wait_time = 0.65
+one_shot = true
+autostart = true
+
+[node name="Timer" type="Timer" parent="." unique_id=1411851171]
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="FadeOutTimer" to="." method="SetFade" binds= [true]]
+[connection signal="timeout" from="ThudTimer" to="ThudPlayer" method="play"]

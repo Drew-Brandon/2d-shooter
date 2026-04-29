@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://l0uduib4urk"]
+
+[ext_resource type="PackedScene" uid="uid://t8b2fpva6x1i" path="res://scenes/instances/ui/inventory_slot_ui.tscn" id="1_oq37c"]
+[ext_resource type="Texture2D" uid="uid://b2y6jl1ajgbs0" path="res://textures/ui/hotbar_slot_ui.png" id="2_lkete"]
+[ext_resource type="Resource" uid="uid://b3q81mpfq3edv" path="res://inventory_ui_status.tres" id="3_1a0gh"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1a0gh"]
+texture = ExtResource("2_lkete")
+
+[sub_resource type="LabelSettings" id="LabelSettings_oq37c"]
+font_size = 24
+font_color = Color(0, 0, 0, 1)
+
+[node name="InventorySlotUI" unique_id=554242975 instance=ExtResource("1_oq37c")]
+
+[node name="SlotPanel" parent="." index="0" unique_id=140953446]
+theme_override_styles/panel = SubResource("StyleBoxTexture_1a0gh")
+_status = ExtResource("3_1a0gh")
+
+[node name="HotbarIndex" type="Label" parent="SlotPanel" index="2" unique_id=1319108723]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.07
+anchor_top = 0.035
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "1"
+label_settings = SubResource("LabelSettings_oq37c")

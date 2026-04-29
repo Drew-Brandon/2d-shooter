@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://cewsq1ryk0jol"]
+
+[ext_resource type="PackedScene" uid="uid://bo6t2orof68" path="res://scenes/instances/ai/cyber_titan_agent.tscn" id="1_uemja"]
+[ext_resource type="Script" uid="uid://bux4fcu6joiue" path="res://scripts/puppet_bodies/ai/ai_behavior/BTPlayer.cs" id="2_nnoek"]
+[ext_resource type="Script" uid="uid://un8dflo4mpka" path="res://scripts/puppet_bodies/ai/ai_behavior/AIBlackboard.cs" id="3_ovmi6"]
+[ext_resource type="Script" uid="uid://boplkvsuodc04" path="res://scripts/puppet_bodies/ai/ai_behavior/behavior_nodes/parent_nodes/BTSelector.cs" id="4_yls2h"]
+[ext_resource type="Script" uid="uid://cq27miyygy1rm" path="res://scripts/puppet_bodies/ai/ai_behavior/behavior_nodes/parent_nodes/BTSequence.cs" id="5_16aij"]
+[ext_resource type="Script" uid="uid://isvvjmd50i14" path="res://scripts/puppet_bodies/ai/ai_behavior/BTVariable.cs" id="6_nthxn"]
+[ext_resource type="Script" uid="uid://epwt62m118dt" path="res://scripts/puppet_bodies/ai/ai_behavior/behavior_nodes/child_nodes/BTSignal.cs" id="7_m4myb"]
+[ext_resource type="Script" uid="uid://b8urbr7k13qsf" path="res://scripts/puppet_bodies/ai/ai_behavior/behavior_nodes/child_nodes/BTNextPatrolPoint.cs" id="8_vyxrs"]
+[ext_resource type="Script" uid="uid://bkfr0sou4ekgh" path="res://scripts/puppet_bodies/ai/ai_behavior/behavior_nodes/child_nodes/BTMoveToPosition.cs" id="9_gcr8f"]
+[ext_resource type="Script" uid="uid://fuyvmvx88oyr" path="res://scripts/puppet_bodies/ai/ai_behavior/behavior_nodes/child_nodes/BTPursueNode2D.cs" id="10_nxbxs"]
+
+[sub_resource type="Resource" id="Resource_wgls8"]
+script = ExtResource("6_nthxn")
+_bbVarType = 2
+_bbVarName = &"patrolling"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_142ew"]
+script = ExtResource("6_nthxn")
+_bbVarType = 1
+_bbVarName = &"cur_patrol_point"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_rnu6l"]
+script = ExtResource("6_nthxn")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_bbxfe"]
+script = ExtResource("6_nthxn")
+_bbVarType = 3
+_bbVarName = &"patrol_path"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_r3ki4"]
+script = ExtResource("6_nthxn")
+_bbVarType = 1
+_bbVarName = &"targ_pos"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_yd207"]
+script = ExtResource("6_nthxn")
+_bbVarType = 2
+_bbVarName = &"chasing"
+_val = false
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[sub_resource type="Resource" id="Resource_krv87"]
+script = ExtResource("6_nthxn")
+_bbVarType = 3
+_bbVarName = &"targ_node"
+_val = null
+metadata/_custom_type_script = "uid://isvvjmd50i14"
+
+[node name="CyberTitanAgent" unique_id=549273246 node_paths=PackedStringArray("_blackboard", "_btPlayer") instance=ExtResource("1_uemja")]
+_blackboard = NodePath("BTPlayer/AIBlackboard")
+_btPlayer = NodePath("BTPlayer")
+
+[node name="BTPlayer" type="Node" parent="." index="10" unique_id=1369535274 node_paths=PackedStringArray("_root", "_ai", "_bb")]
+script = ExtResource("2_nnoek")
+_autoStart = true
+_root = NodePath("RootSelector")
+_ai = NodePath("..")
+_bb = NodePath("AIBlackboard")
+metadata/_custom_type_script = "uid://bux4fcu6joiue"
+
+[node name="AIBlackboard" type="Node" parent="BTPlayer" index="0" unique_id=2092509683]
+script = ExtResource("3_ovmi6")
+_states = Array[StringName]([&"patrolling", &"chasing", &"searching"])
+_vals = Dictionary[StringName, Variant]({
+&"cur_patrol_point": 0,
+&"targ_pos": Vector2(0, 0)
+})
+_nodePaths = Dictionary[StringName, Variant]({
+&"patrol_path": NodePath(""),
+&"targ_node": NodePath("")
+})
+metadata/_custom_type_script = "uid://un8dflo4mpka"
+
+[node name="RootSelector" type="Node" parent="BTPlayer" index="1" unique_id=1264159702]
+script = ExtResource("4_yls2h")
+metadata/_custom_type_script = "uid://boplkvsuodc04"
+
+[node name="PatrolSequence" type="Node" parent="BTPlayer/RootSelector" index="0" unique_id=256688936]
+script = ExtResource("5_16aij")
+_bbQuery = SubResource("Resource_wgls8")
+metadata/_custom_type_script = "uid://cq27miyygy1rm"
+
+[node name="BTSignalWalk" type="Node" parent="BTPlayer/RootSelector/PatrolSequence" index="0" unique_id=385386811]
+script = ExtResource("7_m4myb")
+metadata/_custom_type_script = "uid://epwt62m118dt"
+
+[node name="BTNextPatrolPoint" type="Node" parent="BTPlayer/RootSelector/PatrolSequence" index="1" unique_id=1815375831]
+script = ExtResource("8_vyxrs")
+_curPoint = SubResource("Resource_142ew")
+_targPos = SubResource("Resource_rnu6l")
+_patrolPath = SubResource("Resource_bbxfe")
+metadata/_custom_type_script = "uid://b8urbr7k13qsf"
+
+[node name="BTMoveToPatrol" type="Node" parent="BTPlayer/RootSelector/PatrolSequence" index="2" unique_id=1394305178]
+script = ExtResource("9_gcr8f")
+_pos = SubResource("Resource_r3ki4")
+metadata/_custom_type_script = "uid://bkfr0sou4ekgh"
+
+[node name="ChaseSequence" type="Node" parent="BTPlayer/RootSelector" index="1" unique_id=77101957]
+script = ExtResource("5_16aij")
+_bbQuery = SubResource("Resource_yd207")
+metadata/_custom_type_script = "uid://cq27miyygy1rm"
+
+[node name="BTSignalRun" type="Node" parent="BTPlayer/RootSelector/ChaseSequence" index="0" unique_id=638096954]
+script = ExtResource("7_m4myb")
+metadata/_custom_type_script = "uid://epwt62m118dt"
+
+[node name="BTPursueNode2D" type="Node" parent="BTPlayer/RootSelector/ChaseSequence" index="1" unique_id=699237734]
+script = ExtResource("10_nxbxs")
+_node = SubResource("Resource_krv87")
+metadata/_custom_type_script = "uid://fuyvmvx88oyr"
+
+[connection signal="OnLost" from="Sight" to="BTPlayer/AIBlackboard" method="SetState" unbinds=1 binds= [&"patrolling"]]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/PatrolSequence/BTSignalWalk" to="." method="Walk"]
+[connection signal="OnEnterNode" from="BTPlayer/RootSelector/ChaseSequence/BTSignalRun" to="." method="Run"]

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="InventoryUIStatus" format=3 uid="uid://b3q81mpfq3edv"]
+
+[ext_resource type="Script" uid="uid://d1i2hwnb5yahj" path="res://scripts/inventory/ui/InventoryUIStatus.cs" id="1_c8hgd"]
+
+[resource]
+script = ExtResource("1_c8hgd")
+metadata/_custom_type_script = "uid://d1i2hwnb5yahj"

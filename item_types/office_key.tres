@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://xcenakkey471"]
+
+[ext_resource type="Texture2D" uid="uid://cag05j3c1yhut" path="res://textures/ui/key_item.png" id="1_fehx1"]
+[ext_resource type="Script" uid="uid://bm3cpk505mdpo" path="res://scripts/inventory/item_types/BaseItem.cs" id="2_toidv"]
+
+[resource]
+script = ExtResource("2_toidv")
+_displayName = &"Office Key"
+_icon = ExtResource("1_fehx1")
+metadata/_custom_type_script = "uid://bm3cpk505mdpo"

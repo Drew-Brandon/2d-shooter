@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://v142ttmueb2k"]
+
+[ext_resource type="Script" uid="uid://s3benhlx1nbw" path="res://scripts/plus_variants/RigidBody2DPlus.cs" id="1_5nllc"]
+[ext_resource type="Texture2D" uid="uid://c5g2d5dsdrh6o" path="res://textures/props/office_chair.png" id="1_c1rpq"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_c1rpq"]
+bounce = 0.2
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5nllc"]
+radius = 14.0
+
+[node name="ChairBody" type="RigidBody2D" unique_id=1187171509 groups=["save_rigid_bodies"]]
+collision_layer = 16
+collision_mask = 31
+mass = 5.0
+physics_material_override = SubResource("PhysicsMaterial_c1rpq")
+gravity_scale = 0.0
+freeze_mode = 1
+linear_damp = 0.2
+angular_damp = 1.0
+script = ExtResource("1_5nllc")
+
+[node name="ChairSprite" type="Sprite2D" parent="." unique_id=792436019]
+texture = ExtResource("1_c1rpq")
+
+[node name="ChairCollision" type="CollisionShape2D" parent="." unique_id=1784050516]
+shape = SubResource("CircleShape2D_5nllc")

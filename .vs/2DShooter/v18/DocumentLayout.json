@@ -3,20 +3,52 @@
   "WorkspaceRootPath": "C:\\Users\\drewd\\2d-shooter\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\item_stacks\\itemstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\item_stacks\\itemstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\misc\\sceneopener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\misc\\sceneopener.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\inventoryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\inventoryslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\puppet_bodies\\playerbody2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\puppet_bodies\\playerbody2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\ui\\inventoryslotui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\ui\\inventoryslotui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\puppet_bodies\\puppetbody2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\puppet_bodies\\puppetbody2d.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\item_stacks\\gunstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\item_stacks\\gunstack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\inventory_types\\finiteinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\inventory_types\\finiteinventory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\logic\\relaynode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\logic\\relaynode.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\save_system\\saveresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\save_system\\saveresource.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\save_system\\node_saves\\relaysave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\save_system\\node_saves\\relaysave.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\item_slots\\baseitemslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\item_slots\\baseitemslot.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\cast_info\\raycastinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\cast_info\\raycastinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\cast_info\\castinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\cast_info\\castinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\cast_info\\shapecastinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\cast_info\\shapecastinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|c:\\users\\drewd\\2d-shooter\\scripts\\inventory\\container_types\\finitecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9F08633B-9FD7-48CD-9D06-948AA3CCBAA0}|2DShooter.csproj|solutionrelative:scripts\\inventory\\container_types\\finitecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,58 +58,162 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "InventorySlotUI.cs",
-              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\ui\\InventorySlotUI.cs",
-              "RelativeDocumentMoniker": "scripts\\inventory\\ui\\InventorySlotUI.cs",
-              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\ui\\InventorySlotUI.cs",
-              "RelativeToolTip": "scripts\\inventory\\ui\\InventorySlotUI.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-31T22:30:07.92Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ItemStack.cs",
-              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\item_stacks\\ItemStack.cs",
-              "RelativeDocumentMoniker": "scripts\\inventory\\item_stacks\\ItemStack.cs",
-              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\item_stacks\\ItemStack.cs",
-              "RelativeToolTip": "scripts\\inventory\\item_stacks\\ItemStack.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "SceneOpener.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\misc\\SceneOpener.cs",
+              "RelativeDocumentMoniker": "scripts\\misc\\SceneOpener.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\misc\\SceneOpener.cs",
+              "RelativeToolTip": "scripts\\misc\\SceneOpener.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAcwBYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-28T07:33:33.904Z",
+              "WhenOpened": "2026-04-24T00:11:58.988Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InventorySlot.cs",
-              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\InventorySlot.cs",
-              "RelativeDocumentMoniker": "scripts\\inventory\\InventorySlot.cs",
-              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\InventorySlot.cs",
-              "RelativeToolTip": "scripts\\inventory\\InventorySlot.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "RelaySave.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\save_system\\node_saves\\RelaySave.cs",
+              "RelativeDocumentMoniker": "scripts\\save_system\\node_saves\\RelaySave.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\save_system\\node_saves\\RelaySave.cs",
+              "RelativeToolTip": "scripts\\save_system\\node_saves\\RelaySave.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T20:22:08.064Z",
+              "WhenOpened": "2026-04-23T23:46:09.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "SaveResource.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\save_system\\SaveResource.cs",
+              "RelativeDocumentMoniker": "scripts\\save_system\\SaveResource.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\save_system\\SaveResource.cs",
+              "RelativeToolTip": "scripts\\save_system\\SaveResource.cs",
+              "ViewState": "AgIAAAUAAAAAAAAAAAAAwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T23:45:39.568Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "RelayNode.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\logic\\RelayNode.cs",
+              "RelativeDocumentMoniker": "scripts\\logic\\RelayNode.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\logic\\RelayNode.cs",
+              "RelativeToolTip": "scripts\\logic\\RelayNode.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAQwCEAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T23:41:44.65Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "GunStack.cs",
-              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\item_stacks\\GunStack.cs",
-              "RelativeDocumentMoniker": "scripts\\inventory\\item_stacks\\GunStack.cs",
-              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\item_stacks\\GunStack.cs",
-              "RelativeToolTip": "scripts\\inventory\\item_stacks\\GunStack.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAmwBsAAAAAAAAAAAAAAA==",
+              "Title": "FiniteInventory.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\inventory_types\\FiniteInventory.cs",
+              "RelativeDocumentMoniker": "scripts\\inventory\\inventory_types\\FiniteInventory.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\inventory_types\\FiniteInventory.cs",
+              "RelativeToolTip": "scripts\\inventory\\inventory_types\\FiniteInventory.cs",
+              "ViewState": "AgIAAM8AAAAAAAAAAAAkwN8AAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-27T20:14:54.95Z",
+              "WhenOpened": "2026-04-23T23:01:31.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "PuppetBody2D.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\puppet_bodies\\PuppetBody2D.cs",
+              "RelativeDocumentMoniker": "scripts\\puppet_bodies\\PuppetBody2D.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\puppet_bodies\\PuppetBody2D.cs",
+              "RelativeToolTip": "scripts\\puppet_bodies\\PuppetBody2D.cs",
+              "ViewState": "AgIAANcAAAAAAAAAAAAAAO4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T22:36:05.886Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PlayerBody2D.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\puppet_bodies\\PlayerBody2D.cs",
+              "RelativeDocumentMoniker": "scripts\\puppet_bodies\\PlayerBody2D.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\puppet_bodies\\PlayerBody2D.cs",
+              "RelativeToolTip": "scripts\\puppet_bodies\\PlayerBody2D.cs",
+              "ViewState": "AgIAADUBAAAAAAAAAAAAAEcBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T22:22:39.734Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "BaseItemSlot.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\item_slots\\BaseItemSlot.cs",
+              "RelativeDocumentMoniker": "scripts\\inventory\\item_slots\\BaseItemSlot.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\item_slots\\BaseItemSlot.cs",
+              "RelativeToolTip": "scripts\\inventory\\item_slots\\BaseItemSlot.cs",
+              "ViewState": "AgIAADkAAAAAAAAAAAAhwCgAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T23:01:15.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "RayCastInfo.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\cast_info\\RayCastInfo.cs",
+              "RelativeDocumentMoniker": "scripts\\cast_info\\RayCastInfo.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\cast_info\\RayCastInfo.cs",
+              "RelativeToolTip": "scripts\\cast_info\\RayCastInfo.cs",
+              "ViewState": "AgIAADAAAAAAAAAAAAAYwEwAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T22:39:01.488Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CastInfo.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\cast_info\\CastInfo.cs",
+              "RelativeDocumentMoniker": "scripts\\cast_info\\CastInfo.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\cast_info\\CastInfo.cs",
+              "RelativeToolTip": "scripts\\cast_info\\CastInfo.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAwB4AAAA1AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T22:38:35.133Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ShapeCastInfo.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\cast_info\\ShapeCastInfo.cs",
+              "RelativeDocumentMoniker": "scripts\\cast_info\\ShapeCastInfo.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\cast_info\\ShapeCastInfo.cs",
+              "RelativeToolTip": "scripts\\cast_info\\ShapeCastInfo.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T22:38:43.163Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FiniteContainer.cs",
+              "DocumentMoniker": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\container_types\\FiniteContainer.cs",
+              "RelativeDocumentMoniker": "scripts\\inventory\\container_types\\FiniteContainer.cs",
+              "ToolTip": "C:\\Users\\drewd\\2d-shooter\\scripts\\inventory\\container_types\\FiniteContainer.cs",
+              "RelativeToolTip": "scripts\\inventory\\container_types\\FiniteContainer.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAAABkAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-23T22:22:33.979Z",
               "EditorCaption": ""
             }
           ]

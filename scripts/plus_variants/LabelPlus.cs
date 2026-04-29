@@ -16,18 +16,28 @@ public partial class LabelPlus : Label
 		Text = number.ToString();
 	}
 
+	public void SetTextWithCeilFloat(float number)
+	{
+		Text = Mathf.CeilToInt(number).ToString();
+	}
+
 	public void SetTextWithPrefix(string text)
 	{
 		Text = _prefix + text;
 	}
 
-	public void SetTextWithPrefixWithInt(int number)
+	public void SetTextWithPrefixAndInt(int number)
 	{
 		Text = _prefix + number.ToString();
 	}
 
-	public void SetTextWithPrefixWithFloat(float number)
+	public void SetTextWithPrefixAndFloat(float number)
 	{
 		Text = _prefix + number.ToString();
+	}
+
+	public void SetTextWithPrefixAndCeilFloat(float number)
+	{
+		Text = _prefix + Mathf.CeilToInt(number).ToString();
 	}
 }

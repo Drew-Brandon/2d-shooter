@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="HealthItem" format=3 uid="uid://bhhxxvjrilaab"]
+
+[ext_resource type="Script" uid="uid://52iq8h3j3mwb" path="res://scripts/inventory/item_types/HealthItem.cs" id="1_lnbae"]
+[ext_resource type="Texture2D" uid="uid://dkopiqhiar8r" path="res://textures/ui/bandage.png" id="1_vuq4x"]
+
+[resource]
+script = ExtResource("1_lnbae")
+_maxAmount = 5
+_displayName = &"Bandage"
+_icon = ExtResource("1_vuq4x")
+metadata/_custom_type_script = "uid://52iq8h3j3mwb"

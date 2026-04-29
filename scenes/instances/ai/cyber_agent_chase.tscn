@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://8pjfeu7n6lnq"]
+
+[ext_resource type="PackedScene" uid="uid://crkr0dklf8irv" path="res://scenes/instances/ai/cyber_agent.tscn" id="1_3jdxs"]
+[ext_resource type="PackedScene" uid="uid://cbsymvotuk7gp" path="res://scenes/instances/behavior_trees/bt_chase.tscn" id="2_u01t5"]
+
+[node name="CyberAgentChase" unique_id=549273246 node_paths=PackedStringArray("_blackboard", "_btPlayer") instance=ExtResource("1_3jdxs")]
+_blackboard = NodePath("BTPlayer/AIBlackboard")
+_btPlayer = NodePath("BTPlayer")
+_runSpeed = 100.0
+
+[node name="Sight" parent="." index="3" unique_id=1399605069]
+process_mode = 4
+
+[node name="BTPlayer" parent="." index="7" unique_id=1691529856 node_paths=PackedStringArray("_ai") instance=ExtResource("2_u01t5")]
+_autoStart = false
+_ai = NodePath("..")
+
+[node name="AIBlackboard" parent="BTPlayer" index="0" unique_id=517797344]
+_states = Array[StringName]([&"chasing"])
+
+[connection signal="OnEnterNode" from="BTPlayer/RootSequence/BTSignalRun" to="." method="Run"]
+
+[editable path="BTPlayer"]

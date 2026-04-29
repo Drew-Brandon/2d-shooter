@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://d3wkwqjnmclxa"]
+
+[ext_resource type="Material" uid="uid://dbembdgenq4gf" path="res://bullet_tracer.tres" id="1_pqq3o"]
+
+[node name="BulletTracer" type="Line2D" unique_id=1628861069]
+material = ExtResource("1_pqq3o")
+points = PackedVector2Array(0, 0, 256, 0)
+width = 2.0
+default_color = Color(1, 0.65882355, 0, 1)
+begin_cap_mode = 2
+end_cap_mode = 2
+
+[node name="LifetimeTimer" type="Timer" parent="." unique_id=267280213]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="LifetimeTimer" to="." method="queue_free"]

@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://b3xnxb3hdaalx"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_541bd"]
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_541bd"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_21pyd"]
+resource_name = "popup_label"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ld8vp"]
+_data = {
+&"RESET": SubResource("Animation_541bd"),
+&"popup_label": SubResource("Animation_21pyd")
+}
+
+[node name="PopupLabel" type="Label" unique_id=328552192]
+offset_right = 1.0
+offset_bottom = 45.0
+text = "Default Message"
+label_settings = SubResource("LabelSettings_541bd")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912567250]
+libraries/ = SubResource("AnimationLibrary_ld8vp")
+autoplay = &"popup_label"

@@ -16,8 +16,8 @@ public partial class InventoryUI : Control
 		_slotPath = new NodePath(_slotPathStr);
 	}
 
-	public InventorySlotUI GetSlot(int index)
+	public ItemSlotUI GetSlot(int index)
 	{
-		return _slotContainer.GetChild(index).GetNode<InventorySlotUI>(_slotPath);
+		return _slotContainer.GetChild(index).GetNode<ItemSlotUI>(_slotPath);
 	}
 }

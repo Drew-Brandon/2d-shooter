@@ -1,9 +1,10 @@
 using Godot;
+using Godot.Collections;
 
 /// <summary>
 /// Stores information regarding a general casting.
 /// </summary>
-public partial class CastInfo : Resource
+public abstract partial class CastInfo : Resource
 {
 	[Export]
 	private bool _collideWithAreas = false;

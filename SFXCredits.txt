@@ -1,2 +1,44 @@
 pistol_fire: P38 Shot (3).ogg by smill.and.welson -- https://freesound.org/s/699786/ -- License: Attribution 4.0
 Various Pistol SFX: .40 Pistol Various Foley by e9118586020 -- https://freesound.org/s/567612/ -- License: Creative Commons 0
+
+padded.wav:
+Overview: An edited version of the song "Meditation Impromptu 01" by Kevin Macleod.
+License: https://creativecommons.org/licenses/by/4.0/
+Download: https://incompetech.com/music/royalty-free/index.html?isrc=USUAN1100163
+Artist: https://incompetech.com/
+
+shotgun_pump.wav:
+Pump Action Shotgun by awrmacd -- https://freesound.org/s/387190/ -- License: Creative Commons 0
+
+shotgun_shell_inser.wav:
+410 Shotgun loading sounds by saintsoftware -- https://freesound.org/s/840494/ -- License: Attribution 4.0
+
+shotgun_fire.wav:
+Shotgun_A4.wav by Deganoth -- https://freesound.org/s/348718/ -- License: Attribution 4.0
+
+footstep_wood.wav:
+Footsteps Walking On Wooden Floor Medium Pace.wav by ralph.whitehead -- https://freesound.org/s/565716/ -- License: Creative Commons 0
+
+holster_weapon.wav:
+canvas bag metal buckels moved around.wav by vckhaze -- https://freesound.org/s/380701/ -- License: Creative Commons 0
+
+bandage_wrapping.wav:
+Wrapping cloth by ChuckleNutsDev -- https://freesound.org/s/718668/ -- License: Creative Commons 0
+
+loud_thud.wav:
+Loud Thud by SnowblindSoundDepot -- https://freesound.org/s/464896/ -- License: Creative Commons 0
+
+indoor_ambience.wav:
+Vaulted Ambience (Can Be Looped)  by Dpoggioli -- https://freesound.org/s/213604/ -- License: Attribution 4.0
+
+thunder_strike.wav:
+Thunder 08 by Emulius -- https://freesound.org/s/744723/ -- License: Creative Commons 0
+
+door_creak.wav:
+Door Creaking by Darklitstudio -- https://freesound.org/s/728717/ -- License: Creative Commons 0
+
+outdoor_wind.wav:
+wind draft loop 1 by nsstudios -- https://freesound.org/s/651541/ -- License: Attribution 4.0
+
+footsteps_grass.wav:
+Hiking Boot Footsteps on Grass by Fission9 -- https://freesound.org/s/521587/ -- License: Creative Commons 0

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="StackableItem" format=3 uid="uid://bx6d2nqxj5aph"]
+
+[ext_resource type="Texture2D" uid="uid://bfw6gtcj5tjif" path="res://textures/ui/shotgun_shell.png" id="1_2b22f"]
+[ext_resource type="Script" uid="uid://xnyqa1m05toa" path="res://scripts/inventory/item_types/StackableItem.cs" id="1_dhhqn"]
+
+[resource]
+script = ExtResource("1_dhhqn")
+_maxAmount = 10
+_displayName = &"Shotgun Shell"
+_icon = ExtResource("1_2b22f")
+metadata/_custom_type_script = "uid://xnyqa1m05toa"

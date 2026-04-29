@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://cqomh73pmq8ef"]
+
+[ext_resource type="Script" uid="uid://pn0wkb2g11xq" path="res://scripts/misc/FadeOut.cs" id="1_gkmwo"]
+[ext_resource type="Material" uid="uid://b0cqyj6e0iuw3" path="res://light_occlude_material.tres" id="1_hxqf4"]
+[ext_resource type="Texture2D" uid="uid://ce0k74lu12vb3" path="res://textures/blood_splat.png" id="2_nifre"]
+
+[node name="BloodSplat" type="Sprite2D" unique_id=801851586]
+material = ExtResource("1_hxqf4")
+texture = ExtResource("2_nifre")
+script = ExtResource("1_gkmwo")
+_fadeTime = 32.0
+
+[node name="Timer" type="Timer" parent="." unique_id=2100726145]
+wait_time = 128.0
+autostart = true
