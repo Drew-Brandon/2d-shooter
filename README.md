@@ -3,6 +3,10 @@ This is a project I made back in the spring of 2026.
 It was submitted for the WSU Game Dev Club's Club Projects 3, which can be viewed here: https://itch.io/jam/wsu-club-projects-3.
 Some of the code may be a little iffy since I was under a time crunch to get a lot of it done.
 
+The goal for this project was to make a top-down survival horror game akin to something like Resident Evil.
+For context, survival horror is a game genre in which players are tasked with using their wits to overcome various horror themed scenarios.
+Though, I definitely would not call this game scary.
+
 # How to Run
 One should be able to open this project by installing any version of Godot beyond version 4.6: https://godotengine.org/.
 However, it is recommended that one uses Godot 4.6 or 4.7 since later versions may cause issues.
